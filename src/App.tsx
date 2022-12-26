@@ -7,7 +7,7 @@ function App() {
 
   return (
       <TonConnectUIProvider
-          manifestUrl="https://ton-connect.github.io/demo-dapp/tonconnect-manifest.json"
+          manifestUrl="https://ton-connect.github.io/demo-dapp-with-react-ui/tonconnect-manifest.json"
           theme={THEME.DARK}
       >
         <div className="App">
