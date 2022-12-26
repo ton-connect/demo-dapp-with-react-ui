@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tonconnect/ui-react": "^0.0.1",
+    "@tonconnect/ui-react": "file:../sdk/packages/ui-react",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-json-view": "^1.21.3"
