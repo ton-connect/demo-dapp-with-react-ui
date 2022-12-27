@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, {useCallback, useState} from 'react';
 import ReactJson from 'react-json-view';
 import './style.scss';
 import {useTonConnectUI, useTonWallet} from "@tonconnect/ui-react";

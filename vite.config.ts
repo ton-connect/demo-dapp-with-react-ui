@@ -7,5 +7,10 @@ export default defineConfig({
   build: {
     outDir: 'docs'
   },
-  base: '/demo-dapp-with-react-ui/'
+  base: '/demo-dapp-with-react-ui/',
+  server: {
+    fs: {
+      allow: ['../sdk', './'],
+    },
+  },
 })
