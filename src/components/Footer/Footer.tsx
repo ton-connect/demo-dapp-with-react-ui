@@ -1,11 +1,16 @@
 import {BorderRadius, Locales, Theme, THEME, useTonConnectUI} from "@tonconnect/ui-react";
 import './footer.scss';
 import {useEffect, useState} from "react";
+import {ColorsModal} from "./ColorsModal/ColorsModal";
+
+const defaultWalletsSelectValue = '["Tonkeeper", "OpenMask"]';
 
 export const Footer = () => {
     const [checkboxes, setCheckboxes] = useState(
         [true, false, false, true, true, true]
     );
+
+    const [walletsSelect, setWalletsSelect] = useState(defaultWalletsSelectValue);
 
     const [_, setOptions] = useTonConnectUI();
 
@@ -23,6 +28,28 @@ export const Footer = () => {
 
     const onCheckboxChange = (position: number) => {
         setCheckboxes(state => state.map((item, index) => index === position ? !item : item ));
+    }
+
+    const onWalletsInputBlur = () => {
+        try {
+            const wallets = JSON.parse(walletsSelect);
+            if (!Array.isArray(wallets)) {
+                throw new Error();
+            }
+
+            if (wallets.length > 2) {
+                throw new Error();
+            }
+
+            setOptions({
+                walletsList: {
+                    wallets
+                }
+            })
+        } catch (e) {
+            setWalletsSelect(defaultWalletsSelectValue);
+            alert('Wrong wallets input. Should be an array of strings "Tonkeeper" or "OpenMask"');
+        }
     }
 
     useEffect(() => {
@@ -89,6 +116,21 @@ export const Footer = () => {
             <label>
                 error
                 <input type="checkbox" checked={checkboxes[5]} onChange={() => onCheckboxChange(5)}/>
+            </label>
+        </div>
+
+        <div>
+            <ColorsModal />
+        </div>
+
+        <div>
+            <label>
+                wallets:
+                <input
+                    style={{ width: '200px' }}
+                    value={walletsSelect}
+                    onChange={e => setWalletsSelect(e.target.value)} onBlur={onWalletsInputBlur}
+                />
             </label>
         </div>
     </footer>
