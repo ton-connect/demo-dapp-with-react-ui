@@ -13,6 +13,7 @@ function App() {
           manifestUrl="https://ton-connect.github.io/demo-dapp-with-react-ui/tonconnect-manifest.json"
           walletsListSource="https://raw.githubusercontent.com/ton-connect/wallets-list/feature/openmask/wallets.json"
           getConnectParameters={() => TonProofDemoApi.connectWalletRequest}
+          uiPreferences={{ theme: THEME.DARK }}
       >
         <div className="app">
             <Header />
