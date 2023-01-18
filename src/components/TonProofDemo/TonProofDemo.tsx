@@ -14,6 +14,7 @@ export const TonProofDemo = () => {
 
 	useEffect(() =>
 		tonConnectUI.onStatusChange(async wallet => {
+			console.log(wallet);
 			if (!wallet || wallet.account.chain === CHAIN.TESTNET) {
 				TonProofDemoApi.reset();
 				setAuthorized(false);
