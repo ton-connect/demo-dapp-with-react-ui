@@ -25,8 +25,7 @@ const defaultColors = {
         },
         text: {
             primary: '#0F0F0F',
-            secondary: '#7A8999',
-            subhead: '#6A7785'
+            secondary: '#7A8999'
         }
     },
     [THEME.DARK]: {
@@ -51,8 +50,7 @@ const defaultColors = {
         },
         text: {
             primary: '#E5E5EA',
-            secondary: '#7D7D85',
-            subhead: '#8C8C93'
+            secondary: '#7D7D85'
         }
     }
 }
