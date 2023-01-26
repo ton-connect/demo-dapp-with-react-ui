@@ -1,4 +1,4 @@
-import {BorderRadius, Locales, Theme, THEME, useTonConnectUI} from "@tonconnect/ui-react";
+import {BorderRadius, Locales, ReturnStrategy, Theme, THEME, useTonConnectUI} from "@tonconnect/ui-react";
 import './footer.scss';
 import {useEffect, useState} from "react";
 import {ColorsModal} from "./ColorsModal/ColorsModal";
@@ -11,6 +11,7 @@ export const Footer = () => {
     );
 
     const [walletsSelect, setWalletsSelect] = useState(defaultWalletsSelectValue);
+    const [returnStrategy, setReturnStrategy] = useState('back');
 
     const [_, setOptions] = useTonConnectUI();
 
@@ -50,6 +51,16 @@ export const Footer = () => {
             setWalletsSelect(defaultWalletsSelectValue);
             alert('Wrong wallets input. Should be an array of strings "Tonkeeper" or "OpenMask"');
         }
+    }
+
+    const onReturnStrategyInputBlur = () => {
+        if (!returnStrategy) {
+            setReturnStrategy('back');
+            return;
+        }
+
+        setOptions({ actionsConfiguration: { returnStrategy: returnStrategy as ReturnStrategy } })
+
     }
 
     useEffect(() => {
@@ -130,6 +141,17 @@ export const Footer = () => {
                     style={{ width: '200px' }}
                     value={walletsSelect}
                     onChange={e => setWalletsSelect(e.target.value)} onBlur={onWalletsInputBlur}
+                />
+            </label>
+        </div>
+
+        <div>
+            <label>
+                return strategy:
+                <input
+                    style={{ width: '200px' }}
+                    value={returnStrategy}
+                    onChange={e => setReturnStrategy(e.target.value)} onBlur={onReturnStrategyInputBlur}
                 />
             </label>
         </div>
