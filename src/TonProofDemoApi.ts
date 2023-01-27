@@ -34,7 +34,10 @@ class TonProofDemoApiService {
 			const reqBody = {
 				address: account.address,
 				network: account.chain,
-				proof,
+				proof: {
+					...proof,
+					state_init: account.walletStateInit,
+				},
 			};
 
 			const response = await (
