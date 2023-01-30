@@ -17,7 +17,8 @@ const defaultColors = {
             primary: '#0F0F0F',
             secondary: '#7A8999',
             tertiary: '#C1CAD2',
-            success: '#29CC6A'
+            success: '#29CC6A',
+            error: '#F5A73B'
         },
         background: {
             primary: '#FFFFFF',
@@ -42,7 +43,8 @@ const defaultColors = {
             primary: '#E5E5EA',
             secondary: '#909099',
             tertiary: '#434347',
-            success: '#29CC6A'
+            success: '#29CC6A',
+            error: '#F5A73B'
         },
         background: {
             primary: '#121214',
