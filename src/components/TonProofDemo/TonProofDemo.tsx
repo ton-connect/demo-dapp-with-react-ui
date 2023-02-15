@@ -3,7 +3,7 @@ import ReactJson from 'react-json-view';
 import './style.scss';
 import {TonProofDemoApi} from "../../TonProofDemoApi";
 import {useTonConnectUI, useTonWallet} from "@tonconnect/ui-react";
-import {CHAIN} from "@tonconnect/protocol";
+import {CHAIN} from "@tonconnect/sdk";
 
 
 export const TonProofDemo = () => {
@@ -13,16 +13,15 @@ export const TonProofDemo = () => {
 	const [tonConnectUI] = useTonConnectUI();
 
 	useEffect(() =>
-		tonConnectUI.onStatusChange(async wallet => {
-			console.log(wallet);
-			if (!wallet || wallet.account.chain === CHAIN.TESTNET) {
+		tonConnectUI.onStatusChange(async w => {
+			if (!w || w.account.chain === CHAIN.TESTNET) {
 				TonProofDemoApi.reset();
 				setAuthorized(false);
 				return;
 			}
 
-			if (wallet.connectItems?.tonProof && 'proof' in wallet.connectItems.tonProof) {
-				await TonProofDemoApi.checkProof(wallet.connectItems.tonProof.proof, wallet.account);
+			if (w.connectItems?.tonProof && 'proof' in w.connectItems.tonProof) {
+				await TonProofDemoApi.checkProof(w.connectItems.tonProof.proof, w.account);
 			}
 
 			if (!TonProofDemoApi.accessToken) {
@@ -32,7 +31,7 @@ export const TonProofDemo = () => {
 			}
 
 			setAuthorized(true);
-		}), []);
+		}), [tonConnectUI]);
 
 
 	const handleClick = useCallback(async () => {

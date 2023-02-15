@@ -22,7 +22,8 @@ const defaultColors = {
         },
         background: {
             primary: '#FFFFFF',
-            secondary: '#F1F3F5'
+            secondary: '#F1F3F5',
+            segment: '#262629'
         },
         text: {
             primary: '#0F0F0F',
@@ -48,7 +49,8 @@ const defaultColors = {
         },
         background: {
             primary: '#121214',
-            secondary: '#18181A'
+            secondary: '#18181A',
+            segment: '#262629'
         },
         text: {
             primary: '#E5E5EA',

@@ -43,8 +43,8 @@ export const Footer = () => {
             }
 
             setOptions({
-                walletsList: {
-                    wallets
+                walletsListConfiguration: {
+                    walletsOrder: wallets
                 }
             })
         } catch (e) {
