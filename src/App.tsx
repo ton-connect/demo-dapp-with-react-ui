@@ -13,7 +13,7 @@ function App() {
           manifestUrl="https://ton-connect.github.io/demo-dapp-with-react-ui/tonconnect-manifest.json"
           getConnectParameters={() => TonProofDemoApi.connectWalletRequest}
           uiPreferences={{ theme: THEME.DARK }}
-          walletsListConfiguration={{
+          /*walletsListConfiguration={{
             includeWallets: [...new Array(11)].map((_, index) => ({
                 name: 'tonkeeper',
                 bridgeUrl: `https://bridge${
@@ -23,7 +23,7 @@ function App() {
                 aboutUrl: '',
                 imageUrl: 'https://tonkeeper.com/assets/tonconnect-icon.png'
             }))
-        }}
+        }}*/
       >
         <div className="app">
             <Header />
