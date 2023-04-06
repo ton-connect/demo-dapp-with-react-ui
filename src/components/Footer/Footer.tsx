@@ -10,7 +10,6 @@ export const Footer = () => {
         [true, false, false, true, true, true]
     );
 
-    const [walletsSelect, setWalletsSelect] = useState(defaultWalletsSelectValue);
     const [returnStrategy, setReturnStrategy] = useState('back');
 
     const [_, setOptions] = useTonConnectUI();
@@ -29,28 +28,6 @@ export const Footer = () => {
 
     const onCheckboxChange = (position: number) => {
         setCheckboxes(state => state.map((item, index) => index === position ? !item : item ));
-    }
-
-    const onWalletsInputBlur = () => {
-        try {
-            const wallets = JSON.parse(walletsSelect);
-            if (!Array.isArray(wallets)) {
-                throw new Error();
-            }
-
-            if (wallets.length > 2) {
-                throw new Error();
-            }
-
-            setOptions({
-                walletsListConfiguration: {
-                    walletsOrder: wallets
-                }
-            })
-        } catch (e) {
-            setWalletsSelect(defaultWalletsSelectValue);
-            alert('Wrong wallets input. Should be an array of strings "Tonkeeper" or "OpenMask"');
-        }
     }
 
     const onReturnStrategyInputBlur = () => {
@@ -132,17 +109,6 @@ export const Footer = () => {
 
         <div>
             <ColorsModal />
-        </div>
-
-        <div>
-            <label>
-                wallets:
-                <input
-                    style={{ width: '200px' }}
-                    value={walletsSelect}
-                    onChange={e => setWalletsSelect(e.target.value)} onBlur={onWalletsInputBlur}
-                />
-            </label>
         </div>
 
         <div>

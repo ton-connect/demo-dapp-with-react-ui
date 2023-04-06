@@ -1,16 +1,40 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import ReactJson from 'react-json-view';
 import './style.scss';
 import {TonProofDemoApi} from "../../TonProofDemoApi";
 import {useTonConnectUI, useTonWallet} from "@tonconnect/ui-react";
-import {CHAIN} from "@tonconnect/sdk";
+import {CHAIN} from "@tonconnect/ui-react";
+import useInterval from "../../hooks/useInterval";
 
 
 export const TonProofDemo = () => {
+	const firstProofLoading = useRef<boolean>(true);
+
 	const [data, setData] = useState({});
 	const wallet = useTonWallet();
 	const [authorized, setAuthorized] = useState(false);
 	const [tonConnectUI] = useTonConnectUI();
+
+	const recreateProofPayload = useCallback(async () => {
+		if (firstProofLoading.current) {
+			tonConnectUI.setConnectRequestParameters({ state: 'loading' });
+			firstProofLoading.current = false;
+		}
+
+		const payload = await TonProofDemoApi.generatePayload();
+
+		if (payload) {
+			tonConnectUI.setConnectRequestParameters({ state: 'ready', value: payload });
+		} else {
+			tonConnectUI.setConnectRequestParameters(null);
+		}
+	}, [tonConnectUI, firstProofLoading])
+
+	if (firstProofLoading.current) {
+		recreateProofPayload();
+	}
+
+	useInterval(recreateProofPayload, TonProofDemoApi.refreshIntervalMs);
 
 	useEffect(() =>
 		tonConnectUI.onStatusChange(async w => {

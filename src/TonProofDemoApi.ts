@@ -1,4 +1,4 @@
-import {Account, ConnectAdditionalRequest, TonProofItemReplySuccess} from "@tonconnect/sdk";
+import {Account, ConnectAdditionalRequest, TonProofItemReplySuccess} from "@tonconnect/ui-react";
 import './patch-local-storage-for-github-pages';
 
 class TonProofDemoApiService {
@@ -8,7 +8,7 @@ class TonProofDemoApiService {
 
 	public accessToken: string | null = null;
 
-	public connectWalletRequest: Promise<ConnectAdditionalRequest> = Promise.resolve({});
+	public readonly refreshIntervalMs = 9 * 60 * 1000;
 
 	constructor() {
 		this.accessToken = localStorage.getItem(this.localStorageKey);
@@ -18,15 +18,18 @@ class TonProofDemoApiService {
 		}
 	}
 
-	generatePayload() {
-		this.connectWalletRequest = new Promise(async resolve => {
+	async generatePayload(): Promise<ConnectAdditionalRequest | null> {
+		try {
 			const response = await (
 				await fetch(`${this.host}/ton-proof/generatePayload`, {
 					method: 'POST',
 				})
 			).json();
-			resolve({ tonProof: response.payload as string });
-		})
+			return {tonProof: response.payload as string};
+		} catch {
+			return null;
+		}
+
 	}
 
 	async checkProof(proof: TonProofItemReplySuccess['proof'], account: Account) {
