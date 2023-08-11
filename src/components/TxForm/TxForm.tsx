@@ -5,7 +5,7 @@ import {useTonConnectUI, useTonWallet} from "@tonconnect/ui-react";
 
 
 const defaultTx = {
-	validUntil: Date.now() + 1000000,
+	validUntil: Math.floor(Date.now() / 1000) + 600, // unix epoch seconds
 	messages: [
 		{
 			address: '0:412410771DA82CBA306A55FA9E0D43C9D245E38133CB58F1457DFB8D5CD8892F',

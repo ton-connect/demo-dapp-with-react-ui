@@ -11,6 +11,7 @@ export const Footer = () => {
     );
 
     const [returnStrategy, setReturnStrategy] = useState('back');
+    const [skipRedirect, setSkipRedirect] = useState('ios');
 
     const [_, setOptions] = useTonConnectUI();
 
@@ -37,6 +38,16 @@ export const Footer = () => {
         }
 
         setOptions({ actionsConfiguration: { returnStrategy: returnStrategy as ReturnStrategy } })
+
+    }
+
+    const onSkipRedirectInputBlur = () => {
+        if (!skipRedirect) {
+            setSkipRedirect('ios');
+            return;
+        }
+
+        setOptions({ actionsConfiguration: { skipRedirectToWallet: skipRedirect as 'ios' | 'never' | 'always' } })
 
     }
 
@@ -118,6 +129,22 @@ export const Footer = () => {
                     style={{ width: '200px' }}
                     value={returnStrategy}
                     onChange={e => setReturnStrategy(e.target.value)} onBlur={onReturnStrategyInputBlur}
+                />
+            </label>
+        </div>
+
+        <div>
+            <label>
+                <div>
+                skip redirect to wallet:
+                </div>
+                <div>
+                    ('ios', 'never', 'always')
+                </div>
+                <input
+                    style={{ width: '200px' }}
+                    value={skipRedirect}
+                    onChange={e => setSkipRedirect(e.target.value)} onBlur={onSkipRedirectInputBlur}
                 />
             </label>
         </div>
