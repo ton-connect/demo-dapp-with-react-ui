@@ -19,7 +19,7 @@ function App() {
         <div className="app">
             <Header />
             <TxForm />
-            <TonProofDemo />
+            {/*<TonProofDemo />*/}
             <Footer />
         </div>
       </TonConnectUIProvider>
