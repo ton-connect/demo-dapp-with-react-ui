@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tonconnect/ui-react": "../tonconnect/sdk/packages/ui-react",
+    "@tonconnect/ui-react": "https://gitpkg.now.sh/ton-connect/sdk/packages/ui-react?feature_next-build",
     "eruda": "^2.11.2",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
