@@ -6,7 +6,7 @@ import {Footer} from "./components/Footer/Footer";
 import {TonProofDemo} from "./components/TonProofDemo/TonProofDemo";
 
 const connector = new TonConnect({
-    manifestUrl: "https://demo-dapp.walletbot.net/demo-dapp/tonconnect-manifest.json",
+    manifestUrl: "https://ton-connect.github.io/demo-dapp-with-wallet/tonconnect-manifest.json",
     walletsListSource: 'https://raw.githubusercontent.com/ton-blockchain/wallets-list/feature/at-wallet/wallets.json'
 })
 
