@@ -10,6 +10,9 @@ function App() {
       <TonConnectUIProvider
           manifestUrl="https://ton-connect.github.io/demo-dapp-with-wallet/tonconnect-manifest.json"
           uiPreferences={{ theme: THEME.DARK }}
+          actionsConfiguration={{
+              twaReturnUrl: 'https://t.me/tc_twa_test_bot'
+          }}
       >
         <div className="app">
             <Header />
