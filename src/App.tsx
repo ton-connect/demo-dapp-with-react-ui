@@ -5,15 +5,10 @@ import {TxForm} from "./components/TxForm/TxForm";
 import {Footer} from "./components/Footer/Footer";
 import {TonProofDemo} from "./components/TonProofDemo/TonProofDemo";
 
-const connector = new TonConnect({
-    manifestUrl: "https://ton-connect.github.io/demo-dapp-with-wallet/tonconnect-manifest.json",
-    walletsListSource: 'https://raw.githubusercontent.com/ton-blockchain/wallets-list/feature/at-wallet/wallets.json'
-})
-
 function App() {
   return (
       <TonConnectUIProvider
-          connector={connector}
+          manifestUrl="https://ton-connect.github.io/demo-dapp-with-wallet/tonconnect-manifest.json"
           uiPreferences={{ theme: THEME.DARK }}
       >
         <div className="app">
