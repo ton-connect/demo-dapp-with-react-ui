@@ -12,6 +12,7 @@ export const Footer = () => {
 
     const [returnStrategy, setReturnStrategy] = useState('back');
     const [skipRedirect, setSkipRedirect] = useState('ios');
+    const [enableAndroidBackHandler, setEnableAndroidBackHandler] = useState(true);
 
     const [_, setOptions] = useTonConnectUI();
 
@@ -29,6 +30,10 @@ export const Footer = () => {
 
     const onCheckboxChange = (position: number) => {
         setCheckboxes(state => state.map((item, index) => index === position ? !item : item ));
+    }
+
+    const onEnableAndroidBackHandlerChange = (value: boolean) => {
+        setEnableAndroidBackHandler(value);
     }
 
     const onReturnStrategyInputBlur = () => {
@@ -59,6 +64,10 @@ export const Footer = () => {
         setOptions({ actionsConfiguration: { modals, notifications } })
     }, [checkboxes])
 
+    useEffect(() => {
+        setOptions({ enableAndroidBackHandler });
+    }, [enableAndroidBackHandler]);
+
     return <footer className="footer">
         <div>
             <label>language</label>
@@ -83,6 +92,17 @@ export const Footer = () => {
                 <option value="m">m</option>
                 <option value="s">s</option>
                 <option value="none">none</option>
+            </select>
+        </div>
+
+        <div>
+            <label>enable android back handler</label>
+            <select
+                onChange={e => onEnableAndroidBackHandlerChange(e.target.value === 'true')}
+                value={enableAndroidBackHandler.toString()}
+            >
+                <option value="true">true</option>
+                <option value="false">false</option>
             </select>
         </div>
 
