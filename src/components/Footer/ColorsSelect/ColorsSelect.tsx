@@ -9,10 +9,11 @@ const defaultColors = {
             white: '#FFFFFF'
         },
         connectButton: {
-            background: '#31A6F5',
+            background: '#0098EA',
             foreground: '#FFFFFF'
         },
-        accent: '#31A6F5',
+        accent: '#0098EA',
+        telegramButton: '#0098EA',
         icon: {
             primary: '#0F0F0F',
             secondary: '#7A8999',
@@ -23,11 +24,13 @@ const defaultColors = {
         background: {
             primary: '#FFFFFF',
             secondary: '#F1F3F5',
-            segment: '#262629'
+            segment: '#FFFFFF',
+            tint: '#F1F3F5',
+            qr: '#F1F3F5'
         },
         text: {
             primary: '#0F0F0F',
-            secondary: '#7A8999'
+            secondary: '#6A7785'
         }
     },
     [THEME.DARK]: {
@@ -36,10 +39,11 @@ const defaultColors = {
             white: '#FFFFFF'
         },
         connectButton: {
-            background: '#31A6F5',
+            background: '#0098EA',
             foreground: '#FFFFFF'
         },
         accent: '#E5E5EA',
+        telegramButton: '#31A6F5',
         icon: {
             primary: '#E5E5EA',
             secondary: '#909099',
@@ -50,7 +54,9 @@ const defaultColors = {
         background: {
             primary: '#121214',
             secondary: '#18181A',
-            segment: '#262629'
+            segment: '#262629',
+            tint: '#222224',
+            qr: '#F1F3F5'
         },
         text: {
             primary: '#E5E5EA',
