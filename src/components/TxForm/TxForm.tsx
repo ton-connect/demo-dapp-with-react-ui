@@ -50,7 +50,7 @@ export function TxForm() {
 					Send transaction
 				</button>
 			) : (
-				<button onClick={() => tonConnectUi.connectWallet()}>Connect wallet to send the transaction</button>
+				<button onClick={() => tonConnectUi.openModal()}>Connect wallet to send the transaction</button>
 			)}
 		</div>
 	);
