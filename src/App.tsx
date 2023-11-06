@@ -1,5 +1,5 @@
 import './App.scss'
-import {THEME, TonConnectUIProvider, TonConnect} from "@tonconnect/ui-react";
+import {THEME, TonConnectUIProvider} from "@tonconnect/ui-react";
 import {Header} from "./components/Header/Header";
 import {TxForm} from "./components/TxForm/TxForm";
 import {Footer} from "./components/Footer/Footer";
