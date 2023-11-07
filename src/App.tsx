@@ -11,7 +11,7 @@ function App() {
           manifestUrl="https://ton-connect.github.io/demo-dapp-with-wallet/tonconnect-manifest.json"
           uiPreferences={{ theme: THEME.DARK }}
           actionsConfiguration={{
-              twaReturnUrl: 'https://t.me/tc_twa_test_bot'
+              twaReturnUrl: 'https://t.me/tc_twa_demo_bot/start'
           }}
       >
         <div className="app">
