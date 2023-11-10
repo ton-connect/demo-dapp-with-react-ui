@@ -10,6 +10,19 @@ function App() {
       <TonConnectUIProvider
           manifestUrl="https://ton-connect.github.io/demo-dapp-with-wallet/tonconnect-manifest.json"
           uiPreferences={{ theme: THEME.DARK }}
+          walletsListConfiguration={{
+            includeWallets: [
+              {
+                appName: "telegram-wallet",
+                name: "Wallet",
+                imageUrl: "https://wallet.tg/images/logo-288.png",
+                aboutUrl: "https://wallet.tg/",
+                universalLink: "https://t.me/demo3_2bot/start",
+                bridgeUrl: "https://bridge.tonapi.io/bridge",
+                platforms: ["ios", "android", "macos", "windows", "linux"]
+              }
+            ]
+          }}
           actionsConfiguration={{
               twaReturnUrl: 'https://t.me/tc_twa_demo_bot/start'
           }}
