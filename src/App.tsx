@@ -17,7 +17,7 @@ function App() {
                 name: "TON Wallet",
                 imageUrl: "https://wallet.ton.org/assets/ui/qr-logo.png",
                 aboutUrl: "https://chrome.google.com/webstore/detail/ton-wallet/nphplpgoakhhjchkkhmiggakijnkhfnd",
-                universalLink: "https://wallet.ton.org/",
+                universalLink: "https://wallet.ton.org/ton-connect",
                 jsBridgeKey: "tonwallet",
                 bridgeUrl: "https://bridge.tonapi.io/bridge",
                 platforms: ["chrome", "android"]
