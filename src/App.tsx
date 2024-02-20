@@ -13,6 +13,14 @@ function App() {
           walletsListConfiguration={{
             includeWallets: [
               {
+                appName: "safepalwallet",
+                name: "SafePal",
+                imageUrl: "https://s.pvcliping.com/web/public_image/SafePal_x288.png",
+                aboutUrl: "https://www.safepal.com/download",
+                jsBridgeKey: "safepalwallet",
+                platforms: ["ios", "android", "chrome", "firefox"]
+              },
+              {
                 appName: "tonwallet",
                 name: "TON Wallet",
                 imageUrl: "https://wallet.ton.org/assets/ui/qr-logo.png",
