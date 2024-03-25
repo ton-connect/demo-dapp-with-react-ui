@@ -4,13 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host",
+    "dev": "vite --host --force",
     "build": "tsc && GH_PAGES=true vite build",
     "build:dev": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tonconnect/ui-react": "^2.0.1-beta.3",
+    "@tonconnect/ui-react": "^2.0.1-beta.4",
     "eruda": "^2.11.2",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
