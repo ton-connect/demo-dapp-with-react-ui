@@ -4,17 +4,24 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host",
+    "dev": "vite --host --force",
     "build": "tsc && GH_PAGES=true vite build",
     "build:dev": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ton/core": "^0.56.3",
+    "@ton/crypto": "^3.2.0",
+    "@ton/ton": "^13.11.1",
     "@tonconnect/ui-react": "2.0.2",
+    "buffer": "^6.0.3",
     "eruda": "^2.11.2",
+    "jose": "^5.2.4",
+    "msw": "^2.3.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
-    "react-json-view": "^1.21.3"
+    "react-json-view": "^1.21.3",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
@@ -23,5 +30,10 @@
     "sass": "^1.57.1",
     "typescript": "^4.9.3",
     "vite": "^4.0.0"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
