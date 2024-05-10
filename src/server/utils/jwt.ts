@@ -8,22 +8,31 @@ const JWT_SECRET_KEY = 'your_secret_key';
 /**
  * Payload of the token.
  */
-export type TokenPayload = {
+export type AuthToken = {
   address: string
+};
+
+export type PayloadToken = {
+  payload: string
 };
 
 /**
  * Create a token with the given payload.
  */
-export async function createToken(payload: TokenPayload): Promise<string> {
-  const encoder = new TextEncoder();
-  const key = encoder.encode(JWT_SECRET_KEY);
-  return new SignJWT(payload)
-    .setProtectedHeader({alg: 'HS256'})
-    .setIssuedAt()
-    .setExpirationTime('1Y')
-    .sign(key);
+function buildCreateToken<T extends JWTPayload>(expirationTime: string): (payload: T) => Promise<string> {
+  return async (payload: T) => {
+    const encoder = new TextEncoder();
+    const key = encoder.encode(JWT_SECRET_KEY);
+    return new SignJWT(payload)
+      .setProtectedHeader({alg: 'HS256'})
+      .setIssuedAt()
+      .setExpirationTime(expirationTime)
+      .sign(key);
+  };
 }
+
+export const createAuthToken = buildCreateToken<AuthToken>('1Y');
+export const createPayloadToken = buildCreateToken<PayloadToken>('5m');
 
 /**
  * Verify the given token.
@@ -39,13 +48,19 @@ export async function verifyToken(token: string): Promise<JWTPayload | null> {
   }
 }
 
+
 /**
  * Decode the given token.
  */
-export function decodeToken(token: string): TokenPayload | null {
-  try {
-    return decodeJwt(token);
-  } catch (e) {
-    return null;
-  }
+function buildDecodeToken<T extends JWTPayload>(): (token: string) => T | null {
+  return (token: string) => {
+    try {
+      return decodeJwt(token) as T;
+    } catch (e) {
+      return null;
+    }
+  };
 }
+
+export const decodeAuthToken = buildDecodeToken<AuthToken>();
+export const decodePayloadToken = buildDecodeToken<PayloadToken>();

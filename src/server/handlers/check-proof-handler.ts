@@ -1,6 +1,6 @@
 import {HttpResponseResolver} from "msw";
 import {CheckProofRequest} from "../dto/check-proof-request-dto";
-import {createToken} from "../utils/jwt";
+import {createAuthToken, verifyToken} from "../utils/jwt";
 import {TonProofService} from "../services/ton-proof-service";
 import {badRequest, ok} from "../utils/http-utils";
 
@@ -23,7 +23,12 @@ export const checkProofHandler: CheckProofHandler = (service) => async ({request
       return badRequest({error: 'Invalid proof'});
     }
 
-    const token = await createToken({address: body.address});
+    const payloadToken = body.proof.payload;
+    if (!await verifyToken(payloadToken)) {
+      return badRequest({error: 'Invalid token'});
+    }
+
+    const token = await createAuthToken({address: body.address});
 
     return ok({token: token});
   } catch (e) {

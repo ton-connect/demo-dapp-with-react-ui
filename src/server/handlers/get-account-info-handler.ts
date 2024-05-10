@@ -1,5 +1,5 @@
 import {HttpResponseResolver} from "msw";
-import {decodeToken, verifyToken} from "../utils/jwt";
+import {decodeAuthToken, verifyToken} from "../utils/jwt";
 import {TonProofService} from "../services/ton-proof-service";
 import {badRequest, ok, unauthorized} from "../utils/http-utils";
 
@@ -21,7 +21,7 @@ export const getAccountInfoHandler: GetAccountInfoHandler = (service) => async (
       return unauthorized({error: 'Unauthorized'});
     }
 
-    const payload = decodeToken(token);
+    const payload = decodeAuthToken(token);
     if (!payload?.address) {
       return unauthorized({error: 'Invalid token'});
     }

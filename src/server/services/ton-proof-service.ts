@@ -7,6 +7,10 @@ import {tryParsePublicKey} from "../wrappers/wallets-data";
 
 const tonProofPrefix = 'ton-proof-item-v2/';
 const tonConnectPrefix = 'ton-connect';
+const allowedDomains = [
+  'ton-connect.github.io'
+];
+const validAuthTime = 60; // 1 minute
 
 export class TonProofService {
 
@@ -33,7 +37,7 @@ export class TonProofService {
     const masterAt = await this.client.getLastBlock();
     const result = await this.client.runMethod(
       masterAt.last.seqno, Address.parse(address), 'get_public_key', []);
-    return result.reader.readBuffer();
+    return Buffer.from(result.reader.readBigNumber().toString(16).padStart(64, '0'), 'hex');
   }
 
   /**
@@ -71,6 +75,15 @@ export class TonProofService {
       const wantedAddress = Address.parse(payload.address);
       const address = contractAddress(wantedAddress.workChain, stateInit);
       if (!address.equals(wantedAddress)) {
+        return false;
+      }
+
+      if (!allowedDomains.includes(payload.proof.domain.value)) {
+        return false;
+      }
+
+      const now = Math.floor(Date.now() / 1000);
+      if (now - validAuthTime > payload.proof.timestamp) {
         return false;
       }
 
