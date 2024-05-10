@@ -1,5 +1,5 @@
 import {sha256} from "@ton/crypto";
-import {Address, Cell, contractAddress, loadStateInit, TonClient4} from "@ton/ton";
+import {Address, Cell, contractAddress, loadStateInit} from "@ton/ton";
 import {Buffer} from "buffer";
 import {randomBytes, sign} from "tweetnacl";
 import {CheckProofRequestDto} from "../dto/check-proof-request-dto";
@@ -14,15 +14,6 @@ const validAuthTime = 60; // 1 minute
 
 export class TonProofService {
 
-  private readonly client: TonClient4;
-
-  constructor(client?: TonClient4 | null) {
-    client ??= new TonClient4({
-      endpoint: 'https://mainnet-v4.tonhubapi.com'
-    });
-    this.client = client;
-  }
-
   /**
    * Generate a random payload.
    */
@@ -31,28 +22,10 @@ export class TonProofService {
   }
 
   /**
-   * Get wallet public key by address.
-   */
-  public async getWalletPublicKey(address: string): Promise<Buffer> {
-    const masterAt = await this.client.getLastBlock();
-    const result = await this.client.runMethod(
-      masterAt.last.seqno, Address.parse(address), 'get_public_key', []);
-    return Buffer.from(result.reader.readBigNumber().toString(16).padStart(64, '0'), 'hex');
-  }
-
-  /**
-   * Get account info by address.
-   */
-  public async getAccountInfo(address: string): Promise<ReturnType<TonClient4['getAccount']>> {
-    const masterAt = await this.client.getLastBlock();
-    return await this.client.getAccount(masterAt.last.seqno, Address.parse(address));
-  }
-
-  /**
    * Reference implementation of the checkProof method:
    * https://github.com/ton-blockchain/ton-connect/blob/main/requests-responses.md#address-proof-signature-ton_proof
    */
-  public async checkProof(payload: CheckProofRequestDto): Promise<boolean> {
+  public async checkProof(payload: CheckProofRequestDto, getWalletPublicKey: (address: string) => Promise<Buffer | null>): Promise<boolean> {
     try {
       const stateInit = loadStateInit(Cell.fromBase64(payload.proof.state_init).beginParse());
 
@@ -60,7 +33,7 @@ export class TonProofService {
       // 2. If the smart contract is not deployed yet, or the get-method is missing, you need:
       //  2.1. Parse TonAddressItemReply.walletStateInit and get public key from stateInit. You can compare the walletStateInit.code
       //  with the code of standard wallets contracts and parse the data according to the found wallet version.
-      let publicKey = tryParsePublicKey(stateInit) ?? await this.getWalletPublicKey(payload.address);
+      let publicKey = tryParsePublicKey(stateInit) ?? await getWalletPublicKey(payload.address);
       if (!publicKey) {
         return false;
       }

@@ -4,17 +4,14 @@ import {badRequest, ok} from "../utils/http-utils";
 import {createPayloadToken} from "../utils/jwt";
 
 /**
- * Type definition for the generate payload handler.
- */
-type GeneratePayloadHandler = (service: TonProofService) => HttpResponseResolver;
-
-/**
  * Generates a payload for ton proof.
  *
  * POST /api/generate_payload
  */
-export const generatePayloadHandler: GeneratePayloadHandler = (service) => async () => {
+export const generatePayloadHandler: HttpResponseResolver = async () => {
   try {
+    const service = new TonProofService();
+
     const payload = service.generatePayload();
     const payloadToken = await createPayloadToken({payload: payload});
 
