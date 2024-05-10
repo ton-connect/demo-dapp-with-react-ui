@@ -14,7 +14,13 @@ async function enableMocking() {
   return new Promise(async (resolve) => {
     const {worker} = await import('./server/worker');
 
-    const startMockWorker = () => worker.start({onUnhandledRequest: 'bypass', quiet: false});
+    const startMockWorker = () => worker.start({
+      onUnhandledRequest: 'bypass',
+      quiet: false,
+      serviceWorker: {
+        url: `${import.meta.env.GH_PAGES ? '/demo-dapp-with-react-ui' : ''}/mockServiceWorker.js`
+      }
+    });
     let serviceWorkerRegistration = await startMockWorker();
     resolve(serviceWorkerRegistration);
 
