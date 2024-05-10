@@ -1,3 +1,4 @@
+import {CHAIN} from "@tonconnect/ui-react";
 import {decodeJwt, JWTPayload, jwtVerify, SignJWT} from 'jose';
 
 /**
@@ -9,11 +10,12 @@ const JWT_SECRET_KEY = 'your_secret_key';
  * Payload of the token.
  */
 export type AuthToken = {
-  address: string
+  address: string;
+  network: CHAIN;
 };
 
 export type PayloadToken = {
-  payload: string
+  payload: string;
 };
 
 /**

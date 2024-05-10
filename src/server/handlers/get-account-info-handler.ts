@@ -1,19 +1,14 @@
 import {HttpResponseResolver} from "msw";
-import {decodeAuthToken, verifyToken} from "../utils/jwt";
-import {TonProofService} from "../services/ton-proof-service";
+import {TonApiService} from "../services/ton-api-service";
 import {badRequest, ok, unauthorized} from "../utils/http-utils";
-
-/**
- * Type definition for the get account info handler.
- */
-type GetAccountInfoHandler = (service: TonProofService) => HttpResponseResolver;
+import {decodeAuthToken, verifyToken} from "../utils/jwt";
 
 /**
  * Returns account info.
  *
  * GET /api/get_account_info
  */
-export const getAccountInfoHandler: GetAccountInfoHandler = (service) => async ({request}) => {
+export const getAccountInfoHandler: HttpResponseResolver = async ({request}) => {
   try {
     const token = request.headers.get('Authorization')?.replace('Bearer ', '');
 
@@ -22,11 +17,13 @@ export const getAccountInfoHandler: GetAccountInfoHandler = (service) => async (
     }
 
     const payload = decodeAuthToken(token);
-    if (!payload?.address) {
+    if (!payload?.address || !payload?.network) {
       return unauthorized({error: 'Invalid token'});
     }
 
-    return ok(await service.getAccountInfo(payload.address));
+    const client = TonApiService.create(payload.network);
+
+    return ok(await client.getAccountInfo(payload.address));
   } catch (e) {
     return badRequest({error: 'Invalid request', trace: e});
   }

@@ -1,24 +1,23 @@
 import {HttpResponseResolver} from "msw";
 import {CheckProofRequest} from "../dto/check-proof-request-dto";
-import {createAuthToken, verifyToken} from "../utils/jwt";
+import {TonApiService} from "../services/ton-api-service";
 import {TonProofService} from "../services/ton-proof-service";
 import {badRequest, ok} from "../utils/http-utils";
-
-/**
- * Type definition for the check proof handler.
- */
-type CheckProofHandler = (service: TonProofService) => HttpResponseResolver;
+import {createAuthToken, verifyToken} from "../utils/jwt";
 
 /**
  * Checks the proof and returns an access token.
  *
  * POST /api/check_proof
  */
-export const checkProofHandler: CheckProofHandler = (service) => async ({request}) => {
+export const checkProofHandler: HttpResponseResolver = async ({request}) => {
   try {
-    const body = CheckProofRequest.parse(await request.json())
+    const body = CheckProofRequest.parse(await request.json());
 
-    const isValid = await service.checkProof(body);
+    const client = TonApiService.create(body.network);
+    const service = new TonProofService();
+
+    const isValid = await service.checkProof(body, (address) => client.getWalletPublicKey(address));
     if (!isValid) {
       return badRequest({error: 'Invalid proof'});
     }
@@ -28,7 +27,7 @@ export const checkProofHandler: CheckProofHandler = (service) => async ({request
       return badRequest({error: 'Invalid token'});
     }
 
-    const token = await createAuthToken({address: body.address});
+    const token = await createAuthToken({address: body.address, network: body.network});
 
     return ok({token: token});
   } catch (e) {

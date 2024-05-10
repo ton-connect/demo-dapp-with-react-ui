@@ -3,7 +3,6 @@ import ReactJson from 'react-json-view';
 import './style.scss';
 import {TonProofDemoApi} from "../../TonProofDemoApi";
 import {useTonConnectUI, useTonWallet} from "@tonconnect/ui-react";
-import {CHAIN} from "@tonconnect/ui-react";
 import useInterval from "../../hooks/useInterval";
 
 
@@ -38,7 +37,7 @@ export const TonProofDemo = () => {
 
 	useEffect(() =>
 		tonConnectUI.onStatusChange(async w => {
-			if (!w || w.account.chain === CHAIN.TESTNET) {
+			if (!w) {
 				TonProofDemoApi.reset();
 				setAuthorized(false);
 				return;
