@@ -33,7 +33,7 @@ function App() {
             ]
           }}
           actionsConfiguration={{
-              twaReturnUrl: 'https://t.me/tc_twa_demo_bot/start'
+              twaReturnUrl: 'https://t.me/testing_miniapp_bot/analytics'
           }}
       >
         <div className="app">
