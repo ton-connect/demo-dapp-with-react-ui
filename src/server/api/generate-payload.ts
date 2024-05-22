@@ -8,7 +8,7 @@ import {createPayloadToken} from "../utils/jwt";
  *
  * POST /api/generate_payload
  */
-export const generatePayloadHandler: HttpResponseResolver = async () => {
+export const generatePayload: HttpResponseResolver = async () => {
   try {
     const service = new TonProofService();
 

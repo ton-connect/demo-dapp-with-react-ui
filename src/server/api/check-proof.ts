@@ -10,7 +10,7 @@ import {createAuthToken, verifyToken} from "../utils/jwt";
  *
  * POST /api/check_proof
  */
-export const checkProofHandler: HttpResponseResolver = async ({request}) => {
+export const checkProof: HttpResponseResolver = async ({request}) => {
   try {
     const body = CheckProofRequest.parse(await request.json());
 

@@ -1,5 +1,11 @@
-import {Account, ConnectAdditionalRequest, TonProofItemReplySuccess} from "@tonconnect/ui-react";
+import {
+  Account,
+  ConnectAdditionalRequest,
+  SendTransactionRequest,
+  TonProofItemReplySuccess
+} from "@tonconnect/ui-react";
 import './patch-local-storage-for-github-pages';
+import {CreateJettonRequestDto} from "./server/dto/create-jetton-request-dto";
 
 class TonProofDemoApiService {
   private localStorageKey = 'demo-api-access-token';
@@ -70,6 +76,19 @@ class TonProofDemoApiService {
     ).json();
 
     return response as {};
+  }
+
+  async createJetton(jetton: CreateJettonRequestDto): Promise<SendTransactionRequest> {
+    return await (
+      await fetch(`${this.host}/api/create_jetton`, {
+        body: JSON.stringify(jetton),
+        headers: {
+          Authorization: `Bearer ${this.accessToken}`,
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+      })
+    ).json();
   }
 
   reset() {

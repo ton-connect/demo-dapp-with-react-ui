@@ -8,7 +8,7 @@ import {decodeAuthToken, verifyToken} from "../utils/jwt";
  *
  * GET /api/get_account_info
  */
-export const getAccountInfoHandler: HttpResponseResolver = async ({request}) => {
+export const getAccountInfo: HttpResponseResolver = async ({request}) => {
   try {
     const token = request.headers.get('Authorization')?.replace('Bearer ', '');
 
