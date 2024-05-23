@@ -16,8 +16,11 @@ function App() {
             appName: "safepalwallet",
             name: "SafePal",
             imageUrl: "https://s.pvcliping.com/web/public_image/SafePal_x288.png",
-            aboutUrl: "https://www.safepal.com/download",
+            tondns: "",
+            aboutUrl: "https://www.safepal.com",
+            universalLink: "https://link.safepal.io/ton-connect",
             jsBridgeKey: "safepalwallet",
+            bridgeUrl: "https://ton-bridge.safepal.com/tonbridge/v1/bridge",
             platforms: ["ios", "android", "chrome", "firefox"]
           },
           {
