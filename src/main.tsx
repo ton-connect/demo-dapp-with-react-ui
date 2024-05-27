@@ -27,13 +27,17 @@ async function enableMocking() {
     const verifyAndRestartWorker = runSingleInstance(async () => {
       const serviceWorkerRegistrations = await navigator.serviceWorker.getRegistrations();
 
-      if (serviceWorkerRegistrations.length === 0) {
+      const isServiceWorkerOk = serviceWorkerRegistrations.length > 0;
+      const isApiOk = await fetch('/api/healthz')
+        .then(r => r.status === 200 ? r.json().then(p => p.ok).catch(() => false) : false);
+
+      if (!isServiceWorkerOk || !isApiOk) {
         await serviceWorkerRegistration?.unregister();
         serviceWorkerRegistration = await startMockWorker();
       }
     });
 
-    setInterval(verifyAndRestartWorker, 1_000);
+    setInterval(verifyAndRestartWorker, 5_000);
   });
 }
 
