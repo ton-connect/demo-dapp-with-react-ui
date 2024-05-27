@@ -13,7 +13,7 @@ const defaultTx: SendTransactionRequest = {
 
 		{
 			// The receiver's address.
-			address: '0:8a5a9c7b70d329be670de4e6cce652d464765114aa98038c66c3d8ceaf2d19b0',
+			address: 'EQCKWpx7cNMpvmcN5ObM5lLUZHZRFKqYA4xmw9jOry0ZsF9M',
 			// Amount to send in nanoTON. For example, 0.005 TON is 5000000 nanoTON.
 			amount: '5000000',
 			// (optional) State initialization in boc base64 format.
@@ -26,7 +26,7 @@ const defaultTx: SendTransactionRequest = {
 		/*
     {
       // Note: Funds sent to this address will not be returned back to the sender.
-      address: '0:2ecf5e47d591eb67fa6c56b02b6bb1de6a530855e16ad3082eaa59859e8d5fdc',
+      address: 'UQAuz15H1ZHrZ_psVrAra7HealMIVeFq0wguqlmFno1f3B-m',
       amount: toNano('0.01').toString(),
     }
     */
