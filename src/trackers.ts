@@ -14,6 +14,8 @@ const logEvent = (scope: string): (event: Event) => void => {
 
 const tonConnectUiPrefix = 'ton-connect-ui-';
 const tonConnectUiEvents = [
+  'request-version',
+  'response-version',
   'connection-started',
   'connection-completed',
   'connection-error',
@@ -28,6 +30,8 @@ const tonConnectUiEvents = [
 
 const tonConnectPrefix = 'ton-connect-';
 const tonConnectEvents = [
+  'request-version',
+  'response-version',
   'connection-started',
   'connection-completed',
   'connection-error',
