@@ -379,28 +379,28 @@
     tweetnacl "^1.0.3"
     tweetnacl-util "^0.15.1"
 
-"@tonconnect/sdk@3.0.3-beta.0":
-  version "3.0.3-beta.0"
-  resolved "https://registry.yarnpkg.com/@tonconnect/sdk/-/sdk-3.0.3-beta.0.tgz#7623e3871911ca5a028ec159b1ecfa70e18237ef"
-  integrity sha512-kgjIumrVBvbe3MpspBdi8xnUMB9NAQEjaND5K8HMkzqVEstd3mkAcpAb5mNl+IABDCrcyLVWA2oxikbxTII6Ag==
+"@tonconnect/sdk@3.0.3-beta.1":
+  version "3.0.3-beta.1"
+  resolved "https://registry.yarnpkg.com/@tonconnect/sdk/-/sdk-3.0.3-beta.1.tgz#093e153258de5696f7ccef90b312b08fa5de22a2"
+  integrity sha512-bR2pvBAa80ml9a3qZx7/yw1VYANwcnix3u+T6nomwzcgVoLWnIF25M7cLReDRMrhJO5sPOlAd52QuPD3YFF7Zw==
   dependencies:
     "@tonconnect/isomorphic-eventsource" "^0.0.2"
     "@tonconnect/isomorphic-fetch" "^0.0.3"
     "@tonconnect/protocol" "^2.2.6"
 
-"@tonconnect/ui-react@2.0.3-beta.2":
-  version "2.0.3-beta.2"
-  resolved "https://registry.yarnpkg.com/@tonconnect/ui-react/-/ui-react-2.0.3-beta.2.tgz#f21a21be36c2b5f4591cea87d7fbd2e496c43687"
-  integrity sha512-srw2Km7JaN2Qefz0itEJh3WMOqAcVI2EAIkgzOfGB++e38NghisH8PkjjlyiGPE7hkVsy1aEa/7YAbAwC4TUNw==
+"@tonconnect/ui-react@2.0.3-beta.4":
+  version "2.0.3-beta.4"
+  resolved "https://registry.yarnpkg.com/@tonconnect/ui-react/-/ui-react-2.0.3-beta.4.tgz#21929ae4a7aa337d6a02cf3c119c3ba838c0b8e8"
+  integrity sha512-Smj0AHBOC1eI+5VyI6J9G513JOtRGaTAN8j1CmjLfjt0xMccJM2+Hj71tY2Xa4wmwQNTV8cjrABzXtYWCutkAA==
   dependencies:
-    "@tonconnect/ui" "2.0.3-beta.2"
+    "@tonconnect/ui" "2.0.3-beta.4"
 
-"@tonconnect/ui@2.0.3-beta.2":
-  version "2.0.3-beta.2"
-  resolved "https://registry.yarnpkg.com/@tonconnect/ui/-/ui-2.0.3-beta.2.tgz#c051f302d6082923a3aefef8fa52562ed9f2df39"
-  integrity sha512-IaywGaDncjbbWHz7lVumRphfNQtb7r9In9wQDeHxh/tOSjvf0wdMtjpEJEXZgOEgErBoVM4ka3q84Mx/SlK+uQ==
+"@tonconnect/ui@2.0.3-beta.4":
+  version "2.0.3-beta.4"
+  resolved "https://registry.yarnpkg.com/@tonconnect/ui/-/ui-2.0.3-beta.4.tgz#fbd8b83cdb70a86ef18a26d25b2cf3bbeba75ec2"
+  integrity sha512-nT86/luddcHohe/iJFCTKFlcGGSsOgS3otLaG5YRc6KcOAZBSbe+gAYMydP79MOehMq2Y+n7Hxj3ZYq6zCPoFQ==
   dependencies:
-    "@tonconnect/sdk" "3.0.3-beta.0"
+    "@tonconnect/sdk" "3.0.3-beta.1"
     classnames "^2.3.2"
     deepmerge "^4.2.2"
     ua-parser-js "^1.0.35"
