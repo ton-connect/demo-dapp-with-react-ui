@@ -24,6 +24,17 @@ function App() {
             platforms: ["ios", "android", "chrome", "firefox"]
           },
           {
+            appName: "bitgetTonWallet",
+            name: "Bitget Wallet",
+            imageUrl: "https://raw.githubusercontent.com/bitkeepwallet/download/main/logo/png/bitget%20wallet_logo_iOS.png",
+            aboutUrl: "https://web3.bitget.com",
+            deepLink: "bitkeep://",
+            jsBridgeKey: "bitgetTonWallet",
+            bridgeUrl: "https://bridge.tonapi.io/bridge",
+            platforms: ["ios", "android", "chrome"],
+            universalLink: "https://bkcode.vip/ton-connect"
+          },
+          {
             appName: "tonwallet",
             name: "TON Wallet",
             imageUrl: "https://wallet.ton.org/assets/ui/qr-logo.png",
