@@ -8,7 +8,7 @@ import {tryParsePublicKey} from "../wrappers/wallets-data";
 const tonProofPrefix = 'ton-proof-item-v2/';
 const tonConnectPrefix = 'ton-connect';
 const allowedDomains = [
-  'ton-connect.github.io',
+  'ray0955.github.io',
   'localhost:5173'
 ];
 const validAuthTime = 15 * 60; // 15 minute
