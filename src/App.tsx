@@ -19,6 +19,7 @@ function App() {
             tondns: "",
             aboutUrl: "https://www.safepal.com",
             universalLink: "https://link.safepal.io/ton-connect",
+            deepLink: "safepal-tc://",
             jsBridgeKey: "safepalwallet",
             bridgeUrl: "https://ton-bridge.safepal.com/tonbridge/v1/bridge",
             platforms: ["ios", "android", "chrome", "firefox"]
