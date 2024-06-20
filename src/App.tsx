@@ -9,7 +9,7 @@ import {CreateJettonDemo} from "./components/CreateJettonDemo/CreateJettonDemo";
 function App() {
   return (
       <TonConnectUIProvider
-          manifestUrl="https://raw.githubusercontent.com/Ray0955/react.io/8cc8ad6f65d86092379d953b829ddb0463880113/public/tonconnect-manifest.json"
+          manifestUrl="https://raw.githubusercontent.com/Ray0955/react.io/master/public/tonconnect-manifest.json"
           uiPreferences={{ theme: THEME.DARK }}
           walletsListConfiguration={{
             includeWallets: [
