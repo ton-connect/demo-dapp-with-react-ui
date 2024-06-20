@@ -1,3 +1,4 @@
+
 import './App.scss'
 import {THEME, TonConnectUIProvider} from "@tonconnect/ui-react";
 import {Header} from "./components/Header/Header";
@@ -48,7 +49,7 @@ function App() {
             ]
           }}
           actionsConfiguration={{
-              twaReturnUrl: 'https://t.me/DemoDappWithTonConnectBot/demo'
+              twaReturnUrl: 'https://t.me/Blumes_Bot/Tests'
           }}
       >
         <div className="app">
