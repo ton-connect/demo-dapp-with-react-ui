@@ -45,6 +45,17 @@ function App() {
                 jsBridgeKey: "tonwallet",
                 bridgeUrl: "https://bridge.tonapi.io/bridge",
                 platforms: ["chrome", "android"]
+              },
+              {
+                appName: "nicegramWallet",
+                name: "Nicegram Wallet",
+                imageUrl: "https://static.nicegram.app/icon.png",
+                aboutUrl: "https://nicegram.app",
+                universalLink: "https://nicegram.app/tc",
+                deepLink: "nicegram-tc://",
+                jsBridgeKey: "nicegramWallet",
+                bridgeUrl: "https://bridge.tonapi.io/bridge",
+                platforms: ["ios", "android"]
               }
             ]
           }}
