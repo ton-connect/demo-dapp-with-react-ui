@@ -14,29 +14,6 @@ function App() {
           walletsListConfiguration={{
             includeWallets: [
               {
-                appName: "safepalwallet",
-                name: "SafePal",
-                imageUrl: "https://s.pvcliping.com/web/public_image/SafePal_x288.png",
-                tondns: "",
-                aboutUrl: "https://www.safepal.com",
-                universalLink: "https://link.safepal.io/ton-connect",
-                deepLink: "safepal-tc://",
-                jsBridgeKey: "safepalwallet",
-                bridgeUrl: "https://ton-bridge.safepal.com/tonbridge/v1/bridge",
-                platforms: ["ios", "android", "chrome", "firefox"]
-              },
-              {
-                appName: "bitgetTonWallet",
-                name: "Bitget Wallet",
-                imageUrl: "https://raw.githubusercontent.com/bitkeepwallet/download/main/logo/png/bitget%20wallet_logo_iOS.png",
-                aboutUrl: "https://web3.bitget.com",
-                deepLink: "bitkeep://",
-                jsBridgeKey: "bitgetTonWallet",
-                bridgeUrl: "https://bridge.tonapi.io/bridge",
-                platforms: ["ios", "android", "chrome"],
-                universalLink: "https://bkcode.vip/ton-connect"
-              },
-              {
                 appName: "tonwallet",
                 name: "TON Wallet",
                 imageUrl: "https://wallet.ton.org/assets/ui/qr-logo.png",
@@ -56,7 +33,17 @@ function App() {
                 jsBridgeKey: "nicegramWallet",
                 bridgeUrl: "https://bridge.tonapi.io/bridge",
                 platforms: ["ios", "android"]
-              }
+              },
+              {
+                appName: "binanceTonWeb3Wallet",
+                name: "Binance Web3 Wallet",
+                imageUrl: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjMEIwRTExIi8+CjxwYXRoIGQ9Ik01IDE1TDcuMjU4MDYgMTIuNzQxOUw5LjUxNjEzIDE1TDcuMjU4MDYgMTcuMjU4MUw1IDE1WiIgZmlsbD0iI0YwQjkwQiIvPgo8cGF0aCBkPSJNOC44NzA5NyAxMS4xMjlMMTUgNUwyMS4xMjkgMTEuMTI5TDE4Ljg3MSAxMy4zODcxTDE1IDkuNTE2MTNMMTEuMTI5IDEzLjM4NzFMOC44NzA5NyAxMS4xMjlaIiBmaWxsPSIjRjBCOTBCIi8+CjxwYXRoIGQ9Ik0xMi43NDE5IDE1TDE1IDEyLjc0MTlMMTcuMjU4MSAxNUwxNSAxNy4yNTgxTDEyLjc0MTkgMTVaIiBmaWxsPSIjRjBCOTBCIi8+CjxwYXRoIGQ9Ik0xMS4xMjkgMTYuNjEyOUw4Ljg3MDk3IDE4Ljg3MUwxNSAyNUwyMS4xMjkgMTguODcxTDE4Ljg3MSAxNi42MTI5TDE1IDIwLjQ4MzlMMTEuMTI5IDE2LjYxMjlaIiBmaWxsPSIjRjBCOTBCIi8+CjxwYXRoIGQ9Ik0yMC40ODM5IDE1TDIyLjc0MTkgMTIuNzQxOUwyNSAxNUwyMi43NDE5IDE3LjI1ODFMMjAuNDgzOSAxNVoiIGZpbGw9IiNGMEI5MEIiLz4KPC9zdmc+Cg==",
+                aboutUrl: "https://www.binance.com/en/web3wallet",
+                deepLink: "bnc://app.binance.com/cedefi/ton-connect",
+                bridgeUrl: "https://bridge.tonapi.io/bridge",
+                platforms: ["chrome", "safari", "ios", "android"],
+                universalLink: "https://app.binance.com/cedefi/ton-connect"
+              },
             ]
           }}
           actionsConfiguration={{
