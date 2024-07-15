@@ -6,7 +6,7 @@ export const CheckProofRequest = zod.object({
   network: zod.enum([CHAIN.MAINNET, CHAIN.TESTNET]),
   public_key: zod.string(),
   proof: zod.object({
-    timestamp: zod.number(),
+    timestamp: zod.union([zod.number(), zod.string()]).transform(String),
     domain: zod.object({
       lengthBytes: zod.number(),
       value: zod.string(),
