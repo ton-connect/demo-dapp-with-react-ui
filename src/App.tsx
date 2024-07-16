@@ -44,6 +44,26 @@ function App() {
                 platforms: ["chrome", "safari", "ios", "android"],
                 universalLink: "https://app.binance.com/cedefi/ton-connect"
               },
+              {
+                appName: "okxTonWallet",
+                name: "OKX Wallet",
+                imageUrl: "https://static.okx.com/cdn/assets/imgs/247/58E63FEA47A2B7D7.png",
+                aboutUrl: "https://www.okx.com/web3",
+                universalLink: "https://www.ouxyi.link/ul/uYJPB0",
+                bridgeUrl: "https://www.okx.com/tonbridge/discover/rpc/bridge",
+                jsBridgeKey: "okxTonWallet",
+                platforms: ["chrome", "safari", "firefox", "ios", "android"]
+              },
+              {
+                appName: "okxTonWalletTr",
+                name: "OKX TR Wallet",
+                imageUrl: "https://static.okx.com/cdn/assets/imgs/247/587A8296F0BB640F.png",
+                aboutUrl: "https://tr.okx.com/web3",
+                universalLink: "https://www.ouxyi.link/ul/uYJPB0?entityId=5",
+                bridgeUrl: "https://www.okx.com/tonbridge/discover/rpc/bridge",
+                jsBridgeKey: "okxTonWallet",
+                platforms: ["chrome", "safari", "firefox", "ios", "android"]
+              }
             ]
           }}
           actionsConfiguration={{
