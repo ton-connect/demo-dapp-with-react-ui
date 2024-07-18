@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 
-process.env.VITE_TG_ANALYTICS_URL ??= 'https://tganalytics.xyz/index.js'
+process.env.VITE_TG_ANALYTICS_URL ??= 'ttps://tganalytics-test.space/index.js'
 
 export default defineConfig({
   plugins: [react()],
@@ -15,6 +15,6 @@ export default defineConfig({
   server: {
     fs: {
       allow: ['../sdk', './'],
-    },
+    },``
   },
 })
