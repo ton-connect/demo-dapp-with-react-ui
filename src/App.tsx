@@ -43,6 +43,15 @@ function App() {
                 bridgeUrl: "https://bridge.tonapi.io/bridge",
                 platforms: ["chrome", "safari", "ios", "android"],
                 universalLink: "https://app.binance.com/cedefi/ton-connect"
+              },
+              {
+                appName: "fintopio-tg",
+                name: "Fintopio Telegram",
+                imageUrl: "https://fintopio.com/favicons/favicon-196x196.png",
+                aboutUrl: "https://fintopio.com",
+                universalLink: "https://t.me/fintopio?attach=wallet",
+                bridgeUrl: "https://wallet-bridge.fintopio.com/bridge",
+                platforms: ["ios", "android", "macos", "windows", "linux"]
               }
             ]
           }}
