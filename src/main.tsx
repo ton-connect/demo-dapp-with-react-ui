@@ -11,6 +11,8 @@ import {runSingleInstance} from "./utils/run-signle-instance";
 eruda.init();
 
 async function enableMocking() {
+  const host = document.baseURI.replace(/\/$/, '');
+
   return new Promise(async (resolve) => {
     const {worker} = await import('./server/worker');
 
@@ -29,7 +31,7 @@ async function enableMocking() {
         const serviceWorkerRegistrations = await navigator.serviceWorker?.getRegistrations() || [];
 
         const isServiceWorkerOk = serviceWorkerRegistrations.length > 0;
-        const isApiOk = await fetch('/api/healthz')
+        const isApiOk = await fetch(`${host}/api/healthz`)
           .then(r => r.status === 200 ? r.json().then(p => p.ok).catch(() => false) : false)
           .catch(() => false);
 
