@@ -51,38 +51,6 @@ function App() {
             universalLink: "https://t.me/fintopio?attach=wallet",
             bridgeUrl: "https://wallet-bridge.fintopio.com/bridge",
             platforms: ["ios", "android", "macos", "windows", "linux"]
-          },
-          {
-            appName: "okxTonWallet2",
-            name: "New OKX Wallet",
-            imageUrl:"https://static.okx.com/cdn/assets/imgs/247/58E63FEA47A2B7D7.png",
-            aboutUrl: "https://www.okx.com/web3",
-            universalLink: "https://www.okx.com/download?appendQuery=true&deeplink=okx://web3/wallet/tonconnect",
-            bridgeUrl: "https://www.okx.com/tonbridge/discover/rpc/bridge",
-            jsBridgeKey: "okxTonWallet",
-            platforms:[
-              "chrome",
-              "safari",
-              "firefox",
-              "ios",
-              "android"
-            ]
-          },
-          {
-            appName: "okxTonWalletTr2",
-            name: "New OKX TR Wallet",
-            imageUrl: "https://static.okx.com/cdn/assets/imgs/247/587A8296F0BB640F.png",
-            aboutUrl: "https://tr.okx.com/web3",
-            universalLink: "https://tr.okx.com/download?appendQuery=true&deeplink=okxtr://web3/wallet/tonconnect",
-            jsBridgeKey: "okxTonWallet",
-            bridgeUrl: "https://www.okx.com/tonbridge/discover/rpc/bridge",
-            platforms:[
-              "chrome",
-              "safari",
-              "firefox",
-              "ios",
-              "android"
-            ]
           }
         ]
       }}
