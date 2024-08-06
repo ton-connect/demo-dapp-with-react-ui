@@ -52,6 +52,24 @@ function App() {
                 universalLink: "https://t.me/fintopio?attach=wallet",
                 bridgeUrl: "https://wallet-bridge.fintopio.com/bridge",
                 platforms: ["ios", "android", "macos", "windows", "linux"]
+              },
+              {
+                appName: "GateWallet",
+                name: "GateWallet",
+                imageUrl: "https://www.gate.io/images/login/qrcode_center_icon.svg",
+                aboutUrl: "https://www.gate.io/",
+                bridgeUrl: "https://dapp.gateio.services/tonbridge_api/bridge/v1",
+                jsBridgeKey: "gatetonwallet",
+                platforms: ["ios", "android", "chrome"],
+                universalLink: "https://gateio.onelink.me/DmA6/web3"
+              },
+              {
+                appName: "tokenpocket",
+                name: "TokenPocket",
+                imageUrl: "https://hk.tpstatic.net/logo/tokenpocket.png",
+                aboutUrl: "https://tokenpocket.pro",
+                jsBridgeKey: "tokenpocket",
+                platforms: ["ios", "android"]
               }
             ]
           }}
