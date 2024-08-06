@@ -8,7 +8,8 @@ import {
   WalletContractV2R2,
   WalletContractV3R1,
   WalletContractV3R2,
-  WalletContractV4 as WalletContractV4R2
+  WalletContractV4 as WalletContractV4R2,
+  WalletContractV5R1
 } from "@ton/ton";
 import {Buffer} from "buffer";
 import {WalletContractV4R1} from "./wallet-contract-v4-r1";
@@ -23,6 +24,7 @@ const knownWallets = [
   {contract: WalletContractV3R2, loadData: loadWalletV3Data},
   {contract: WalletContractV4R1, loadData: loadWalletV4Data},
   {contract: WalletContractV4R2, loadData: loadWalletV4Data},
+  {contract: WalletContractV5R1, loadData: loadWalletV5Data}
 ].map(({contract, loadData}) => ({
   contract: contract,
   loadData: loadData,
@@ -54,6 +56,15 @@ function loadWalletV4Data(cs: Slice) {
   const publicKey = cs.loadBuffer(32);
   const plugins = cs.loadMaybeRef();
   return {seqno, publicKey, walletId, plugins};
+}
+
+function loadWalletV5Data(cs: Slice) {
+  const signatureAllowed = cs.loadBit();
+  const seqno = cs.loadUint(32);
+  const walletId = cs.loadUint(32);
+  const publicKey = cs.loadBuffer(32);
+  const plugins = cs.loadMaybeRef();
+  return {signatureAllowed, seqno, walletId, publicKey, plugins}
 }
 
 export function tryParsePublicKey(stateInit: StateInit): Buffer | null {
