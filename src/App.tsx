@@ -14,15 +14,6 @@ function App() {
           walletsListConfiguration={{
             includeWallets: [
               {
-                appName: "telegram-wallet",
-                name: "Wallet",
-                imageUrl: "https://wallet.tg/images/logo-288.png",
-                aboutUrl: "https://wallet.tg/",
-                universalLink: "https://t.me/wallet?attach=wallet&mode=compact",
-                bridgeUrl: "https://bridge.ton.space/bridge",
-                platforms: ["ios", "android", "macos", "windows", "linux"]
-              },
-              {
                 appName: "tonwallet",
                 name: "TON Wallet",
                 imageUrl: "https://wallet.ton.org/assets/ui/qr-logo.png",
