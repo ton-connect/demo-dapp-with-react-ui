@@ -90,7 +90,16 @@ function App() {
             jsBridgeKey: "bybitTonWallet",
             bridgeUrl: "https://api-node.bybit.com/spot/api/web3/bridge/ton/bridge",
             platforms: ["ios", "android", "chrome"]
-          }
+          },
+          {
+            appName: "dewallet",
+            name: "DeWallet",
+            imageUrl: "https://raw.githubusercontent.com/delab-team/manifests-images/main/WalletAvatar.png",
+            aboutUrl: "https://delabwallet.com",
+            universalLink: "https://t.me/dewallet?attach=wallet",
+            bridgeUrl: "https://bridge.dewallet.pro/bridge",
+            platforms: ["ios", "android", "macos", "windows", "linux"]
+          },
         ]
       }}
       actionsConfiguration={{
