@@ -46,7 +46,7 @@ function App() {
           {
             appName: "fintopio-tg",
             name: "Fintopio Telegram",
-            imageUrl: "https://fintopio.com/favicons/favicon-196x196.png",
+            imageUrl: "https://fintopio.com/tonconnect-icon.png",
             aboutUrl: "https://fintopio.com",
             universalLink: "https://t.me/fintopio?attach=wallet",
             bridgeUrl: "https://wallet-bridge.fintopio.com/bridge",
