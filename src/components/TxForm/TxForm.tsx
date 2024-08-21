@@ -1,7 +1,9 @@
-import React, {useCallback, useState} from 'react';
-import ReactJson, {InteractionProps} from 'react-json-view';
+import React, { useCallback, useState } from 'react';
+import ReactJson, { InteractionProps } from 'react-json-view';
 import './style.scss';
-import {SendTransactionRequest, useTonConnectUI, useTonWallet} from "@tonconnect/ui-react";
+import { SendTransactionRequest, useTonConnectUI, useTonWallet } from "@tonconnect/ui-react";
+import { Cell } from '@ton/core';
+import { Api, HttpClient } from 'tonapi-sdk-js';
 
 // In this example, we are using a predefined smart contract state initialization (`stateInit`)
 // to interact with an "EchoContract". This contract is designed to send the value back to the sender,
@@ -46,14 +48,42 @@ export function TxForm() {
     setTx(value.updated_src as SendTransactionRequest)
   }, []);
 
+  const handleSend = async () => {
+    const res = await tonConnectUi.sendTransaction(tx);
+    console.log(res);
+    const hash = Cell.fromBase64(res.boc).hash().toString('hex');
+    console.log(`Transaction hash: ${hash}`);
+
+    const apikey = 'AFPJTKEBPOX3AIYAAAAKA2HWOTRNJP5MUCV5DMDCZAAOCPSAYEYS3CILNQVLF2HWKED6USY'
+
+    const httpClient = new HttpClient({
+      baseUrl: 'https://testnet.tonapi.io',
+      baseApiParams: {
+        headers: {
+          Authorization: `Bearer ${apikey}`,
+          'Content-type': 'application/json'
+        }
+      }
+    });
+
+    // Initialize the API client
+    const client = new Api(httpClient);
+
+    // Fetch a typed array of account events
+    const transactions = await client.blockchain.getBlockchainTransaction(hash);
+
+    console.log(transactions, 'tx');
+
+  }
+
   return (
     <div className="send-tx-form">
       <h3>Configure and send transaction</h3>
 
-      <ReactJson theme="ocean" src={defaultTx} onEdit={onChange} onAdd={onChange} onDelete={onChange}/>
+      <ReactJson theme="ocean" src={defaultTx} onEdit={onChange} onAdd={onChange} onDelete={onChange} />
 
       {wallet ? (
-        <button onClick={() => tonConnectUi.sendTransaction(tx)}>
+        <button onClick={handleSend}>
           Send transaction
         </button>
       ) : (
