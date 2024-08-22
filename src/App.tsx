@@ -72,25 +72,15 @@ function App() {
                 platforms: ["ios", "android"]
               },
               {
-                appName: "hot",
-                name: "HOT",
-                imageUrl: "https://storage.herewallet.app/logo.png",
-                aboutUrl: "https://hot-labs.org/",
-                universalLink: "https://t.me/herewalletbot?attach=wallet",
-                bridgeUrl: "https://sse-bridge.hot-labs.org",
-                jsBridgeKey: "hotWallet",
-                platforms: ["ios", "android", "macos", "windows", "linux"]
-              },
-              {
                 appName: "bybitTonWallet",
                 name: "Bybit Wallet",
                 imageUrl: "https://static.bymj.io/bhop/image/Q3Kmzw7qczSZF5eqfo6pW8QuT1MDMmqC80lWxFBhiE0.png",
                 aboutUrl: "https://www.bybit.com/web3",
                 universalLink: "https://app.bybit.com/ton-connect",
                 deepLink: "bybitapp://",
-                jsBridgeKey: "bybitTonWallet",
                 bridgeUrl: "https://api-node.bybit.com/spot/api/web3/bridge/ton/bridge",
-                platforms: ["ios", "android", "chrome"]
+                jsBridgeKey: "bybitTonWallet",
+                platforms: ["ios", "android", "windows", "linux", "macos"]
               },
               {
                 appName: "dewallet",
