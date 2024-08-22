@@ -2,11 +2,11 @@ import './patch-local-storage-for-github-pages';
 import './polyfills';
 import eruda from "eruda";
 
-import React, {StrictMode} from 'react'
-import {render} from 'react-dom';
+import React, { StrictMode } from 'react'
+import { render } from 'react-dom';
 import App from './App'
 import './index.scss'
-import {runSingleInstance} from "./utils/run-signle-instance";
+import { runSingleInstance } from "./utils/run-signle-instance";
 
 eruda.init();
 
@@ -14,7 +14,7 @@ async function enableMocking() {
   const host = document.baseURI.replace(/\/$/, '');
 
   return new Promise(async (resolve) => {
-    const {worker} = await import('./server/worker');
+    const { worker } = await import('./server/worker');
 
     const startMockWorker = () => worker.start({
       onUnhandledRequest: 'bypass',
@@ -36,7 +36,7 @@ async function enableMocking() {
           .catch(() => false);
 
         if (!isServiceWorkerOk || !isApiOk) {
-          await serviceWorkerRegistration?.unregister().catch(() => {});
+          await serviceWorkerRegistration?.unregister().catch(() => { });
           serviceWorkerRegistration = await startMockWorker().catch(() => null);
         }
       } catch (error) {
@@ -49,9 +49,9 @@ async function enableMocking() {
   });
 }
 
-enableMocking().then(() => render(
+render(
   <StrictMode>
-    <App/>
+    <App />
   </StrictMode>,
   document.getElementById('root') as HTMLElement
-));
+)

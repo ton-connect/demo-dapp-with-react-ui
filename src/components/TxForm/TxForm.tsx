@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import ReactJson, { InteractionProps } from 'react-json-view';
 import './style.scss';
 import { SendTransactionRequest, useTonConnectUI, useTonWallet } from "@tonconnect/ui-react";
-import { Cell } from '@ton/core';
+import { Cell, Address, beginCell, storeMessage, TonClient } from "@ton/ton";
 import { Api, HttpClient } from 'tonapi-sdk-js';
 
 // In this example, we are using a predefined smart contract state initialization (`stateInit`)
@@ -36,6 +36,26 @@ const defaultTx: SendTransactionRequest = {
   ],
 };
 
+export async function retry<T>(fn: () => Promise<T>, options: { retries: number, delay: number }): Promise<T> {
+  let lastError: Error | undefined;
+  for (let i = 0; i < options.retries; i++) {
+    try {
+      return await fn();
+    } catch (e) {
+      if (e instanceof Error) {
+        lastError = e;
+      }
+      await new Promise(resolve => setTimeout(resolve, options.delay));
+    }
+  }
+  throw lastError;
+}
+
+const client = new TonClient({
+  endpoint: 'https://testnet.toncenter.com/api/v2/jsonRPC',
+  apiKey: '8c2d45e1adc061fc45f9efb06de21b35303ed5c3c3416db5fa84dc8b5b3e40b4',
+});
+
 export function TxForm() {
 
   const [tx, setTx] = useState(defaultTx);
@@ -48,11 +68,52 @@ export function TxForm() {
     setTx(value.updated_src as SendTransactionRequest)
   }, []);
 
+  async function getTxByBOC(exBoc: string): Promise<string> {
+
+    const myAddress = Address.parse(tonConnectUi.account!.address); // Address to fetch transactions from
+
+    return retry(async () => {
+      const transactions = await client.getTransactions(myAddress, {
+        limit: 5,
+      });
+      for (const tx of transactions) {
+        const inMsg = tx.inMessage;
+        if (inMsg?.info.type === 'external-in') {
+
+          const inBOC = inMsg?.body;
+          if (typeof inBOC === 'undefined') {
+
+            throw new Error('Invalid external');
+            continue;
+          }
+          const extHash = Cell.fromBase64(exBoc).hash().toString('hex')
+          const inHash = beginCell().store(storeMessage(inMsg)).endCell().hash().toString('hex')
+
+          console.log(' hash BOC', extHash);
+          console.log('inMsg hash', inHash);
+          console.log('checking the tx', tx, tx.hash().toString('hex'));
+
+
+          // Assuming `inBOC.hash()` is synchronous and returns a hash object with a `toString` method
+          if (extHash === inHash) {
+            console.log('Tx match');
+            const txHash = tx.hash().toString('hex');
+            console.log(`Transaction Hash: ${txHash}`);
+            console.log(`Transaction LT: ${tx.lt}`);
+            return (txHash);
+          }
+        }
+      }
+      throw new Error('Transaction not found');
+    }, { retries: 30, delay: 1000 });
+  }
+
   const handleSend = async () => {
     const res = await tonConnectUi.sendTransaction(tx);
     console.log(res);
-    const hash = Cell.fromBase64(res.boc).hash().toString('hex');
-    console.log(`Transaction hash: ${hash}`);
+    const hash = await getTxByBOC(res.boc);
+    // const hash = Cell.fromBase64(res.boc).hash().toString('hex');
+    console.log(`hash: ${hash}`);
 
     const apikey = 'AFPJTKEBPOX3AIYAAAAKA2HWOTRNJP5MUCV5DMDCZAAOCPSAYEYS3CILNQVLF2HWKED6USY'
 
