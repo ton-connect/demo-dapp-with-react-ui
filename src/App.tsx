@@ -73,17 +73,6 @@ function App() {
                 platforms: ["ios", "android"]
               },
               {
-                appName: "bybitTonWallet",
-                name: "Bybit Wallet",
-                imageUrl: "https://static.bymj.io/bhop/image/Q3Kmzw7qczSZF5eqfo6pW8QuT1MDMmqC80lWxFBhiE0.png",
-                aboutUrl: "https://www.bybit.com/web3",
-                universalLink: "https://app.bybit.com/ton-connect",
-                deepLink: "bybitapp://",
-                bridgeUrl: "https://api-node.bybit.com/spot/api/web3/bridge/ton/bridge",
-                jsBridgeKey: "bybitTonWallet",
-                platforms: ["ios", "android", "windows", "linux", "macos"]
-              },
-              {
                 appName: "dewallet",
                 name: "DeWallet",
                 imageUrl: "https://raw.githubusercontent.com/delab-team/manifests-images/main/WalletAvatar.png",
