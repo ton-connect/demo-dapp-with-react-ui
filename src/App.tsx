@@ -99,7 +99,16 @@ function App() {
             jsBridgeKey: "cdcTonWallet",
             bridgeUrl: "https://wallet.crypto.com/sse/tonbridge",
             platforms: ["ios", "android", "chrome"]
-          }
+          },
+          {
+            appName: "tobi",
+            name: "Tobi",
+            imageUrl: "https://app.tobiwallet.app/icons/logo.png",
+            aboutUrl: "https://tobi.fun",
+            universalLink: "https://t.me/TobiWalletBot?attach=wallet",
+            bridgeUrl: "https://bridge.tonapi.io/bridge",
+            platforms: ["ios", "android", "macos", "windows", "linux"]
+          },
         ]
       }}
       actionsConfiguration={{
