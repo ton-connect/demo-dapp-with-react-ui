@@ -88,6 +88,17 @@ function App() {
             universalLink: "https://t.me/BitgetOfficialBot?attach=wallet",
             bridgeUrl: "https://ton-connect-bridge.bgwapi.io/bridge",
             platforms: ["ios", "android", "windows", "macos", "linux"]
+          },
+          {
+            appName: "cdcTonWallet",
+            name: "Crypto.com DeFi Wallet",
+            imageUrl: "https://apro-ncw-api-file.crypto.com/wallet/logo",
+            aboutUrl: "https://crypto.com/defi-wallet",
+            universalLink: "https://wallet.crypto.com/deeplink/ton-connect",
+            deepLink: "dfw://",
+            jsBridgeKey: "cdcTonWallet",
+            bridgeUrl: "https://wallet.crypto.com/sse/tonbridge",
+            platforms: ["ios", "android", "chrome"]
           }
         ]
       }}
