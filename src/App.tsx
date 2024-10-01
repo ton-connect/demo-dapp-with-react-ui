@@ -89,6 +89,15 @@ function App() {
                 bridgeUrl: "https://bridge.tonapi.io/bridge",
                 platforms: ["ios", "android", "macos", "windows", "linux"]
               },
+              {
+                appName: "trustwalletTon",
+                name: "Trust",
+                imageUrl: "https://assets-cdn.trustwallet.com/dapps/trust.logo.png",
+                aboutUrl: "https://trustwallet.com/about-us",
+                bridgeUrl: "https://tonconnect.trustwallet.com/",
+                jsBridgeKey: "trustwalletTon",
+                platforms: ["chrome", "ios", "android"]
+              }
             ]
           }}
           actionsConfiguration={{
