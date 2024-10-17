@@ -34,15 +34,6 @@ function App() {
             platforms: ["ios", "android"]
           },
           {
-            appName: "fintopio-tg",
-            name: "Fintopio Telegram",
-            imageUrl: "https://fintopio.com/tonconnect-icon.png",
-            aboutUrl: "https://fintopio.com",
-            universalLink: "https://t.me/fintopio?attach=wallet",
-            bridgeUrl: "https://wallet-bridge.fintopio.com/bridge",
-            platforms: ["ios", "android", "macos", "windows", "linux"]
-          },
-          {
             appName: "tokenpocket",
             name: "TokenPocket",
             imageUrl: "https://hk.tpstatic.net/logo/tokenpocket.png",
