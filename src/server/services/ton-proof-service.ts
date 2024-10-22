@@ -34,7 +34,7 @@ export class TonProofService {
       // 2. If the smart contract is not deployed yet, or the get-method is missing, you need:
       //  2.1. Parse TonAddressItemReply.walletStateInit and get public key from stateInit. You can compare the walletStateInit.code
       //  with the code of standard wallets contracts and parse the data according to the found wallet version.
-      let publicKey = tryParsePublicKey(stateInit) ?? await getWalletPublicKey(payload.address);
+      let publicKey = await getWalletPublicKey(payload.address) ?? tryParsePublicKey(stateInit);
       if (!publicKey) {
         return false;
       }
