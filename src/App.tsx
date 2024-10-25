@@ -88,7 +88,16 @@ function App() {
                 bridgeUrl: "https://tonconnect.trustwallet.com/bridge",
                 jsBridgeKey: "trustwalletTon",
                 platforms: ["chrome", "ios", "android"]
-              }
+              },
+              {
+                appName: "bitgetWalletLite",
+                name: "Bitget Wallet Lite",
+                imageUrl: "https://raw.githubusercontent.com/bitgetwallet/download/main/logo/png/bitget_wallet_lite_logo.png",
+                aboutUrl: "https://web3.bitget.com",
+                universalLink: "https://t.me/BitgetWallet_TGBot?attach=wallet",
+                bridgeUrl: "https://ton-connect-bridge.bgwapi.io/bridge",
+                platforms: ["ios", "android", "macos", "windows", "linux"]
+              },
             ]
           }}
           actionsConfiguration={{
