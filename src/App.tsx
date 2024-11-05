@@ -96,15 +96,6 @@ function App() {
             universalLink: "https://t.me/BitgetWallet_TGBot?attach=wallet",
             bridgeUrl: "https://ton-connect-bridge.bgwapi.io/bridge",
             platforms: ["ios", "android", "macos", "windows", "linux"]
-          },
-          {
-            appName: "okxMiniWallet",
-            name: "OKX Mini Wallet",
-            imageUrl: "https://static.okx.com/cdn/assets/imgs/2410/32F531EF53080285.png",
-            aboutUrl: "https://www.okx.com/web3",
-            universalLink: "https://t.me/OKX_WALLET_BOT?attach=wallet",
-            bridgeUrl: "https://www.okx.com/tonbridge/discover/rpc/bridge",
-            platforms: ["ios", "android", "macos", "windows", "linux"]
           }
         ]
       }}
