@@ -6,7 +6,7 @@ import React, {StrictMode} from 'react'
 import {render} from 'react-dom';
 import App from './App'
 import './index.scss'
-import {runSingleInstance} from "./utils/run-signle-instance";
+import {runSingleInstance} from "./utils/run-single-instance";
 
 eruda.init();
 
