@@ -96,6 +96,14 @@ function App() {
             universalLink: "https://t.me/BitgetWallet_TGBot?attach=wallet",
             bridgeUrl: "https://ton-connect-bridge.bgwapi.io/bridge",
             platforms: ["ios", "android", "macos", "windows", "linux"]
+          },
+          {
+            appName: "onekey",
+            name: "OneKey",
+            imageUrl: "https://common.onekey-asset.com/logo/onekey-x288.png",
+            aboutUrl: "https://onekey.so",
+            jsBridgeKey: "onekeyTonWallet",
+            platforms: ["chrome"]
           }
         ]
       }}
