@@ -52,15 +52,6 @@ function App() {
                 platforms: ["ios", "android", "macos", "windows", "linux"]
               },
               {
-                appName: "BitgetWeb3",
-                name: "BitgetWeb3",
-                imageUrl: "https://img.bitgetimg.com/image/third/1723701408284.png",
-                aboutUrl: "https://www.bitget.com",
-                universalLink: "https://t.me/BitgetOfficialBot?attach=wallet",
-                bridgeUrl: "https://ton-connect-bridge.bgwapi.io/bridge",
-                platforms: ["ios", "android", "windows", "macos", "linux"]
-              },
-              {
                 appName: "cdcTonWallet",
                 name: "Crypto.com DeFi Wallet",
                 imageUrl: "https://apro-ncw-api-file.crypto.com/wallet/logo",
