@@ -90,6 +90,15 @@ function App() {
                 platforms: ["chrome", "ios", "android"]
               },
               {
+                appName: "BitgetWeb3",
+                name: "BitgetWeb3",
+                imageUrl: "https://img.bitgetimg.com/image/third/1723701408284.png",
+                aboutUrl: "https://www.bitget.com",
+                universalLink: "https://t.me/BitgetOfficialBot?attach=wallet",
+                bridgeUrl: "https://ton-connect-bridge.bgwapi.io/bridge",
+                platforms: ["ios", "android", "windows", "macos", "linux"]
+              },
+              {
                 appName: "bitgetWalletLite",
                 name: "Bitget Wallet Lite",
                 imageUrl: "https://raw.githubusercontent.com/bitgetwallet/download/main/logo/png/bitget_wallet_lite_logo.png",
