@@ -124,6 +124,15 @@ function App() {
                 jsBridgeKey: "hpyTonWallet",
                 bridgeUrl: "https://bridge.tonapi.io/bridge",
                 platforms: ["ios", "android", "macos", "windows", "linux"]
+              },
+              {
+                appName: "unstoppable",
+                name: "Unstoppable Wallet",
+                imageUrl: "https://unstoppable.money/logo288.png",
+                aboutUrl: "https://unstoppable.money/",
+                universalLink: "https://unstoppable.money/ton-connect.html",
+                bridgeUrl: "https://bridge.unstoppable.money/bridge",
+                platforms: ["ios", "android", "macos", "windows", "linux"]
               }
             ]
           }}
