@@ -40,8 +40,8 @@ function App() {
                 universalLink: "https://nicegram.app/tc",
                 deepLink: "nicegram-tc://",
                 jsBridgeKey: "nicegramWallet",
-                bridgeUrl: "https://bridge.tonapi.io/bridge",
-                platforms: ["ios", "android"]
+                bridgeUrl: "https://tc.nicegram.app/bridge",
+                platforms: ["ios", "android", "macos", "windows", "linux"]
               },
               {
                 appName: "tokenpocket",
@@ -118,11 +118,11 @@ function App() {
               {
                 appName: "hpyTonWallet",
                 name: "HyperPay Wallet",
-                imageUrl: "https://hyperpay-website.oss-cn-hongkong.aliyuncs.com/static/dist/images/2022-12-30/logo.png",
+                imageUrl: "https://onchain-oss.hyperpay.online/images/logo.png",
                 aboutUrl: "https://www.hyperpay.tech",
                 universalLink: "https://www.hyperpay.tech/download&deeplink=hyperpay://web3/wallet/tonconnect",
                 jsBridgeKey: "hpyTonWallet",
-                bridgeUrl: "https://bridge.tonapi.io/bridge",
+                bridgeUrl: "https://onchain-wallet.hyperpay.online/bridge",
                 platforms: ["ios", "android", "macos", "windows", "linux"]
               },
               {
@@ -130,7 +130,7 @@ function App() {
                 name: "Unstoppable Wallet",
                 imageUrl: "https://unstoppable.money/logo288.png",
                 aboutUrl: "https://unstoppable.money/",
-                universalLink: "https://unstoppable.money/ton-connect.html",
+                universalLink: "https://unstoppable.money/ton-connect",
                 bridgeUrl: "https://bridge.unstoppable.money/bridge",
                 platforms: ["ios", "android", "macos", "windows", "linux"]
               }
