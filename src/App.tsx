@@ -133,6 +133,14 @@ function App() {
                 universalLink: "https://unstoppable.money/ton-connect",
                 bridgeUrl: "https://bridge.unstoppable.money/bridge",
                 platforms: ["ios", "android", "macos", "windows", "linux"]
+              },
+              {
+                appName: 'foxwallet',
+                name: 'FoxWallet',
+                imageUrl: 'https://hc.foxwallet.com/img/logo.png',
+                aboutUrl: 'https://foxwallet.com/',
+                jsBridgeKey: 'foxwallet',
+                platforms: ['ios', 'android', 'macos', 'windows', 'linux']
               }
             ]
           }}
