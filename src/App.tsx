@@ -141,6 +141,17 @@ function App() {
                 aboutUrl: 'https://foxwallet.com/',
                 jsBridgeKey: 'foxwallet',
                 platforms: ['ios', 'android', 'macos', 'windows', 'linux']
+              },
+              {
+                appName: "jambo",
+                name: "Jambo",
+                imageUrl: "https://cdn-prod.jambotechnology.xyz/content/jambo_288x288_02da416a6c.png",
+                aboutUrl: "https://www.jambo.technology/",
+                deepLink: "jambotc://",
+                universalLink: "https://jambophone.xyz/",
+                bridgeUrl: "https://bridge.tonapi.io/bridge",
+                jsBridgeKey: "jambowallet",
+                platforms: ['android', 'macos', 'windows', 'linux']
               }
             ]
           }}
