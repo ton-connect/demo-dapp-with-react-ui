@@ -47,9 +47,11 @@ function App() {
                 appName: "tokenpocket",
                 name: "TokenPocket",
                 imageUrl: "https://hk.tpstatic.net/logo/tokenpocket.png",
-                aboutUrl: "https://tokenpocket.pro",
+                aboutUrl: "https://www.tokenpocket.pro",
+                universalLink: "https://tp-lab.tptool.pro/ton-connect/",
                 jsBridgeKey: "tokenpocket",
-                platforms: ["ios", "android"]
+                bridgeUrl: "https://ton-connect.mytokenpocket.vip/bridge",
+                platforms: ["ios", "android", "macos", "windows", "linux"]
               },
               {
                 appName: "dewallet",
