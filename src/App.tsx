@@ -137,12 +137,14 @@ function App() {
                 platforms: ["ios", "android", "macos", "windows", "linux"]
               },
               {
-                appName: 'foxwallet',
-                name: 'FoxWallet',
-                imageUrl: 'https://hc.foxwallet.com/img/logo.png',
-                aboutUrl: 'https://foxwallet.com/',
-                jsBridgeKey: 'foxwallet',
-                platforms: ['ios', 'android', 'macos', 'windows', 'linux']
+                appName: "foxwallet",
+                name: "FoxWallet",
+                imageUrl: "https://hc.foxwallet.com/img/logo.png",
+                aboutUrl: "https://foxwallet.com/",
+                universalLink: "https://link.foxwallet.com/tc",
+                jsBridgeKey: "foxwallet",
+                bridgeUrl: "https://connect.foxwallet.com/ton/bridge",
+                platforms: ["ios", "android", 'macos', 'windows', 'linux']
               },
               {
                 appName: "jambo",
