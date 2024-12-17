@@ -88,6 +88,7 @@ function App() {
                 imageUrl: "https://assets-cdn.trustwallet.com/dapps/trust.logo.png",
                 aboutUrl: "https://trustwallet.com/about-us",
                 bridgeUrl: "https://tonconnect.trustwallet.com/bridge",
+                deepLink: "trust://ton-connect",
                 jsBridgeKey: "trustwalletTon",
                 platforms: ["chrome", "ios", "android"]
               },
