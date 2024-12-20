@@ -158,6 +158,15 @@ function App() {
                 bridgeUrl: "https://bridge.tonapi.io/bridge",
                 jsBridgeKey: "jambowallet",
                 platforms: ['android', 'macos', 'windows', 'linux']
+              },
+              {
+                appName: "Gate.io wallet",
+                name: "Gate.io wallet",
+                imageUrl: "https://gimg2.gateimg.com/tgwallet/1730688473495507406-Gatewallet.png",
+                aboutUrl: "https://www.gate.io",
+                universalLink: "https://t.me/gateio_wallet_bot?attach=wallet",
+                bridgeUrl: "https://dapp.gateio.services/tonbridge_api/bridge/v1",
+                platforms: ["ios", "android", "chrome", "windows", "macos"]
               }
             ]
           }}
