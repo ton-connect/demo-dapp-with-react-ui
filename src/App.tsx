@@ -166,7 +166,7 @@ function App() {
                 aboutUrl: "https://www.gate.io",
                 universalLink: "https://t.me/gateio_wallet_bot?attach=wallet",
                 bridgeUrl: "https://dapp.gateio.services/tonbridge_api/bridge/v1",
-                platforms: ["ios", "android", "chrome", "windows", "macos"]
+                platforms: ["ios", "android", "linux", "windows", "macos"]
               }
             ]
           }}
