@@ -115,7 +115,7 @@ function App() {
                 name: "Tomo Wallet",
                 imageUrl: "https://pub.tomo.inc/logo.png",
                 aboutUrl: "https://www.tomo.inc/",
-                universalLink: "https://t.me/tomowalletbot?attach=wallet",
+                universalLink: "https://t.me/tomotestwalletbot?attach=wallet",
                 bridgeUrl: "https://go-bridge.tomo.inc/bridge",
                 platforms: ["ios", "android", "macos", "windows", "linux"]
               },
@@ -167,6 +167,33 @@ function App() {
                 universalLink: "https://t.me/gateio_wallet_bot?attach=wallet",
                 bridgeUrl: "https://dapp.gateio.services/tonbridge_api/bridge/v1",
                 platforms: ["ios", "android", "linux", "windows", "macos"]
+              },
+              {
+                appName: "coin98",
+                name: "Coin98 ",
+                imageUrl: "https://coin98.s3.ap-southeast-1.amazonaws.com/SocialLogo/ninetyeight.png",
+                aboutUrl: "https://docs.coin98.com",
+                deepLink: "coin98://ton-connect",
+                bridgeUrl: "https://https://ton-bridge.coin98.tech/bridge",
+                platforms:  ["ios", "android"],
+                universalLink: "https://coin98.com/ton-conect"
+              },
+              {
+                appName: "miraiapp-tg",
+                name: "Mirai App",
+                imageUrl: "https://cdn.mirailabs.co/miraihub/miraiapp-tg-icon-288.png",
+                aboutUrl: "https://mirai.app",
+                universalLink: "https://t.me/MiraiAppBot?attach=wallet",
+                bridgeUrl: "https://bridge.tonapi.io/bridge",
+                platforms: ["ios", "android", "macos", "windows", "linux"]
+              },
+              {
+                appName: 'nestwallet',
+                name: 'Nest Wallet',
+                imageUrl: 'https://storage.googleapis.com/nestwallet-public-resource-bucket/logo/nest_logo_square.png',
+                aboutUrl: 'https://www.nestwallet.xyz',
+                jsBridgeKey: 'nestwallet',
+                platforms: ['chrome']
               }
             ]
           }}
