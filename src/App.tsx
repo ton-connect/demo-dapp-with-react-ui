@@ -115,7 +115,7 @@ function App() {
                 name: "Tomo Wallet",
                 imageUrl: "https://pub.tomo.inc/logo.png",
                 aboutUrl: "https://www.tomo.inc/",
-                universalLink: "https://t.me/tomotestwalletbot?attach=wallet",
+                universalLink: "https://t.me/tomowalletbot?attach=wallet",
                 bridgeUrl: "https://go-bridge.tomo.inc/bridge",
                 platforms: ["ios", "android", "macos", "windows", "linux"]
               },
