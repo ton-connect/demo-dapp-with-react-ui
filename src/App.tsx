@@ -194,6 +194,24 @@ function App() {
                 aboutUrl: 'https://www.nestwallet.xyz',
                 jsBridgeKey: 'nestwallet',
                 platforms: ['chrome']
+              },
+              {
+                appName: "architec.ton",
+                name: "Architec.ton",
+                imageUrl: "https://raw.githubusercontent.com/Architec-Ton/wallet-tma/refs/heads/dev/public/images/arcwallet_logo.png",
+                aboutUrl: "https://architecton.tech",
+                universalLink: "https://t.me/architec_ton_bot/wallet",
+                bridgeUrl: "https://tonconnect.architecton.site/bridge",
+                platforms: ["ios", "android", "macos", "windows", "linux"]
+              },
+              {
+                appName: "uxuyWallet",
+                name: "UXUY Wallet",
+                imageUrl: "https://raw.githubusercontent.com/uxuycom/uxuy-docsite/main/static/assets/UXUYWallet-logo/UXUYWallet_logo_circle.svg",
+                aboutUrl: "https://docs.uxuy.com",
+                universalLink: "https://t.me/UXUYbot/app",
+                bridgeUrl: "https://bridge.uxuy.me/bridge",
+                platforms: ["ios", "android", "macos", "windows", "linux"]
               }
             ]
           }}
