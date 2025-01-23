@@ -200,7 +200,7 @@ function App() {
                 name: "Architec.ton",
                 imageUrl: "https://raw.githubusercontent.com/Architec-Ton/wallet-tma/refs/heads/dev/public/images/arcwallet_logo.png",
                 aboutUrl: "https://architecton.tech",
-                universalLink: "https://t.me/architec_ton_bot/wallet",
+                universalLink: "https://t.me/architec_ton_bot?attach=wallet",
                 bridgeUrl: "https://tonconnect.architecton.site/bridge",
                 platforms: ["ios", "android", "macos", "windows", "linux"]
               },
@@ -209,7 +209,7 @@ function App() {
                 name: "UXUY Wallet",
                 imageUrl: "https://raw.githubusercontent.com/uxuycom/uxuy-docsite/main/static/assets/UXUYWallet-logo/UXUYWallet_logo_circle.svg",
                 aboutUrl: "https://docs.uxuy.com",
-                universalLink: "https://t.me/UXUYbot/app",
+                universalLink: "https://t.me/UXUYbot?attach=wallet",
                 bridgeUrl: "https://bridge.uxuy.me/bridge",
                 platforms: ["ios", "android", "macos", "windows", "linux"]
               }
