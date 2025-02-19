@@ -196,12 +196,12 @@ function App() {
                 platforms: ['chrome']
               },
               {
-                appName: "architec.ton",
+                appName: "Architec.ton",
                 name: "Architec.ton",
                 imageUrl: "https://raw.githubusercontent.com/Architec-Ton/wallet-tma/refs/heads/dev/public/images/arcwallet_logo.png",
                 aboutUrl: "https://architecton.tech",
                 universalLink: "https://t.me/architec_ton_bot?attach=wallet",
-                bridgeUrl: "https://tonconnect.architecton.site/bridge",
+                bridgeUrl: "https://tc.architecton.su/bridge",
                 platforms: ["ios", "android", "macos", "windows", "linux"]
               },
               {
@@ -211,6 +211,26 @@ function App() {
                 aboutUrl: "https://docs.uxuy.com",
                 universalLink: "https://t.me/UXUYbot?attach=wallet",
                 bridgeUrl: "https://bridge.uxuy.me/bridge",
+                platforms: ["ios", "android", "macos", "windows", "linux"]
+              },
+              {
+                appName: "tonflow",
+                name: "TONFLOW",
+                imageUrl: "https://tonflow.app/assets/images/tonflow_ico_256.png",
+                aboutUrl: "https://tonflow.app",
+                universalLink: "https://tonflow.app/ton-connect",
+                deepLink: "tonflow-tc://",
+                bridgeUrl: "https://bridge.tonapi.io/bridge",
+                jsBridgeKey: "tonflow",
+                platforms: ["windows", "linux", "macos", "chrome"]
+              },
+              {
+                appName: 'Tonkeeper',
+                name: 'TonkeeperWeb',
+                imageUrl: 'https://raw.githubusercontent.com/tonkeeper/tonkeeper-web/0f197474c57937787608697e794ef2b20a62f0d4/apps/twa/public/logo-128x128.png',
+                aboutUrl: 'https://6b1b912a.tonkeeper-web.pages.dev/',
+                universalLink: 'https://6b1b912a.tonkeeper-web.pages.dev/ton-connect',
+                bridgeUrl: "https://bridge.tonapi.io/bridge",
                 platforms: ["ios", "android", "macos", "windows", "linux"]
               }
             ]
