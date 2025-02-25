@@ -174,9 +174,18 @@ function App() {
                 imageUrl: "https://coin98.s3.ap-southeast-1.amazonaws.com/SocialLogo/ninetyeight.png",
                 aboutUrl: "https://docs.coin98.com",
                 deepLink: "coin98://ton-connect",
-                bridgeUrl: "https://https://ton-bridge.coin98.tech/bridge",
-                platforms:  ["ios", "android"],
-                universalLink: "https://coin98.com/ton-conect"
+                bridgeUrl: "https://ton-bridge.coin98.tech/bridge",
+                platforms: ["ios", "android"],
+                universalLink: "https://coin98.com/ton-connect"
+              },
+              {
+                appName: "coin98TelegramWallet",
+                name: "Coin98 Telegram Wallet",
+                imageUrl: "https://coin98.s3.ap-southeast-1.amazonaws.com/SocialLogo/ninetyeight.png",
+                aboutUrl: "https://docs.coin98.com",
+                universalLink: "https://t.me/Coin98_bot?attach=wallet",
+                bridgeUrl: "https://ton-bridge.coin98.tech/bridge",
+                platforms: ["ios", "android", "macos", "windows", "linux"]
               },
               {
                 appName: "miraiapp-tg",
@@ -184,8 +193,19 @@ function App() {
                 imageUrl: "https://cdn.mirailabs.co/miraihub/miraiapp-tg-icon-288.png",
                 aboutUrl: "https://mirai.app",
                 universalLink: "https://t.me/MiraiAppBot?attach=wallet",
-                bridgeUrl: "https://bridge.tonapi.io/bridge",
+                bridgeUrl: "https://bridge.mirai.app",
                 platforms: ["ios", "android", "macos", "windows", "linux"]
+              },
+              {
+                appName: "miraiapp",
+                name: "Mirai App",
+                imageUrl: "https://cdn.mirailabs.co/miraihub/miraiapp-icon-288.png",
+                aboutUrl: "https://mirai.app",
+                universalLink: "https://go.miraiapp.io/ton-connect",
+                deepLink: "miraiapp://",
+                bridgeUrl: "https://bridge.tonapi.io/bridge",
+                jsBridgeKey: "miraiapp",
+                platforms: ["ios", "android", "chrome", "firefox"]
               },
               {
                 appName: 'nestwallet',
@@ -228,8 +248,8 @@ function App() {
                 appName: 'Tonkeeper',
                 name: 'TonkeeperWeb',
                 imageUrl: 'https://raw.githubusercontent.com/tonkeeper/tonkeeper-web/0f197474c57937787608697e794ef2b20a62f0d4/apps/twa/public/logo-128x128.png',
-                aboutUrl: 'https://6b1b912a.tonkeeper-web.pages.dev/',
-                universalLink: 'https://6b1b912a.tonkeeper-web.pages.dev/ton-connect',
+                aboutUrl: 'https://wallet.tonkeeper.com/',
+                universalLink: 'https://wallet.tonkeeper.com/ton-connect',
                 bridgeUrl: "https://bridge.tonapi.io/bridge",
                 platforms: ["ios", "android", "macos", "windows", "linux"]
               }
