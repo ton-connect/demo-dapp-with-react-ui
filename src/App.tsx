@@ -189,7 +189,7 @@ function App() {
               },
               {
                 appName: "miraiapp-tg",
-                name: "Mirai App",
+                name: "Mirai Mini App",
                 imageUrl: "https://cdn.mirailabs.co/miraihub/miraiapp-tg-icon-288.png",
                 aboutUrl: "https://mirai.app",
                 universalLink: "https://t.me/MiraiAppBot?attach=wallet",
