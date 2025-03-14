@@ -252,6 +252,75 @@ function App() {
                 universalLink: 'https://wallet.tonkeeper.com/ton-connect',
                 bridgeUrl: "https://bridge.tonapi.io/bridge",
                 platforms: ["ios", "android", "macos", "windows", "linux"]
+              },
+              {
+                appName: "hot",
+                name: "HOT",
+                imageUrl: "https://raw.githubusercontent.com/hot-dao/media/main/logo.png",
+                aboutUrl: "https://hot-labs.org/",
+                universalLink: "https://t.me/herewalletbot?attach=wallet",
+                bridgeUrl: "https://sse-bridge.hot-labs.org",
+                jsBridgeKey: "hotWallet",
+                platforms: ["ios", "android", "macos", "windows", "linux", "chrome", "safari", "firefox"]
+              },
+              {
+                appName: "u2uWallet",
+                name: "U2U Wallet",
+                imageUrl: "https://u2-images.s3.ap-southeast-1.amazonaws.com/hdw/logo.jpg",
+                aboutUrl: "https://u2u.xyz/ecosystem",
+                deepLink: "u2wallet-tc://",
+                universalLink: "https://u2u-wallet-app.uniultra.xyz/ton-connect",
+                bridgeUrl: "https://ton-bridge.uniultra.xyz/bridge",
+                platforms: ["ios", "android"]
+              },
+              {
+                appName: "koloWeb3Wallet",
+                name: "Kolo Web3 Wallet",
+                imageUrl: "https://raw.githubusercontent.com/onidev1/tc-assets/refs/heads/main/kolo_logo_288.png",
+                aboutUrl: "https://kolo.in/ua/cryptowallet",
+                universalLink: "https://t.me/kolo?attach=wallet",
+                bridgeUrl: "https://web3-bridge.kolo.in/",
+                platforms: ["ios", "android", "macos", "windows", "linux"]
+              },
+              {
+                appName: "walletverse",
+                name: "Walletverse",
+                imageUrl: "https://bridge.walletverse.io/logo.png",
+                aboutUrl: "https://walletverse.io",
+                universalLink: "https://bridge.walletverse.io/tonconnect",
+                bridgeUrl: "https://bridge.walletverse.io/sse/bridge",
+                jsBridgeKey: "walletverse",
+                platforms: ["ios", "android"]
+              },
+              {
+                appName: "bybitMiniWallet",
+                name: "Bybit Mini Wallet",
+                imageUrl: "https://raw.githubusercontent.com/bybit-web3/bybit-web3.github.io/main/docs/images/bybit-logo.png",
+                aboutUrl: "https://www.bybit.com/web3",
+                universalLink: "https://t.me/Bybit_Web3_wallet_bot?attach=wallet",
+                bridgeUrl: "https://api-node.bybit.com/spot/api/web3/bridge/ton/bridge",
+                platforms: ["ios", "android", "macos", "windows", "linux"]
+              },
+              {
+                appName: "ONTO",
+                name: "ONTO",
+                imageUrl: "https://app.ont.io/ontoMsgPic/onto.png",
+                tondns: "onto.app",
+                aboutUrl: "https://onto.app",
+                universalLink: "https://link.onto.app/ton-connect",
+                jsBridgeKey: "onto",
+                platforms: ["ios", "android"]
+              },
+              {
+                appName: "defiway",
+                name: "Defiway",
+                imageUrl: "https://fs.defiway.com/icons/tonconnect-icon.png",
+                aboutUrl: "https://wallet.defiway.com",
+                universalLink: "https://wallet.defiway.com/ton-connect",
+                deepLink: "defiway-tc://",
+                bridgeUrl: "https://api.defiway.com/ton-connect",
+                jsBridgeKey: "defiway",
+                platforms: ["ios", "android", "chrome", "safari"]
               }
             ]
           }}
