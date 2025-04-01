@@ -321,6 +321,14 @@ function App() {
                 bridgeUrl: "https://api.defiway.com/ton-connect",
                 jsBridgeKey: "defiway",
                 platforms: ["ios", "android", "chrome", "safari"]
+              },
+              {
+                appName: "exoduswallet",
+                name: "Exodus",
+                imageUrl: "https://www.exodus.com/brand/dl/images/Exodus_symbol.png",
+                aboutUrl: "https://www.exodus.com/",
+                jsBridgeKey: "exoduswallet",
+                platforms: ["ios", "android", "chrome"]
               }
             ]
           }}
