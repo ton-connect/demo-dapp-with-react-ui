@@ -335,7 +335,7 @@ function App() {
                 name: "EchoooWallet",
                 imageUrl: "https://cdn.echooo.xyz/front-end/fw/2025-01-20/f27b7b41-66b4-4b5d-b3d4-a3ac1d8b34ba.png",
                 aboutUrl: "https://www.echooo.xyz",
-                universalLink: "https://www.echooo.xyz",
+                universalLink: "https://www.echooo.xyz/ton-connect",
                 deepLink: "echooo://",
                 jsBridgeKey: "echoooTonWallet",
                 bridgeUrl: "https://ton-connect-bridge.echooo.link/bridge",
