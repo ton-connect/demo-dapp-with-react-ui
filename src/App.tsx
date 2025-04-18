@@ -15,15 +15,6 @@ function App() {
           walletsListConfiguration={{
             includeWallets: [
               {
-                appName: "telegram-wallet",
-                name: "Wallet",
-                imageUrl: "https://wallet.tg/images/logo-288.png",
-                aboutUrl: "https://wallet.tg/",
-                universalLink: "https://t.me/wallet?attach=wallet",
-                bridgeUrl: "https://bridge.ton.space/bridge",
-                platforms: ["ios", "android", "macos", "windows", "linux"]
-              },
-              {
                 appName: "tonwallet",
                 name: "TON Wallet",
                 imageUrl: "https://wallet.ton.org/assets/ui/qr-logo.png",
@@ -45,25 +36,6 @@ function App() {
                 platforms: ["ios", "android", "macos", "windows", "linux"]
               },
               {
-                appName: "tokenpocket",
-                name: "TokenPocket",
-                imageUrl: "https://hk.tpstatic.net/logo/tokenpocket.png",
-                aboutUrl: "https://www.tokenpocket.pro",
-                universalLink: "https://tp-lab.tptool.pro/ton-connect/",
-                jsBridgeKey: "tokenpocket",
-                bridgeUrl: "https://ton-connect.mytokenpocket.vip/bridge",
-                platforms: ["ios", "android", "macos", "windows", "linux"]
-              },
-              {
-                appName: "dewallet",
-                name: "DeWallet",
-                imageUrl: "https://raw.githubusercontent.com/delab-team/manifests-images/main/WalletAvatar.png",
-                aboutUrl: "https://delabwallet.com",
-                universalLink: "https://t.me/dewallet?attach=wallet",
-                bridgeUrl: "https://bridge.dewallet.pro/bridge",
-                platforms: ["ios", "android", "macos", "windows", "linux"]
-              },
-              {
                 appName: "cdcTonWallet",
                 name: "Crypto.com DeFi Wallet",
                 imageUrl: "https://apro-ncw-api-file.crypto.com/wallet/logo",
@@ -73,15 +45,6 @@ function App() {
                 jsBridgeKey: "cdcTonWallet",
                 bridgeUrl: "https://wallet.crypto.com/sse/tonbridge",
                 platforms: ["ios", "android", "chrome"]
-              },
-              {
-                appName: "tobi",
-                name: "Tobi",
-                imageUrl: "https://app.tobiwallet.app/icons/logo.png",
-                aboutUrl: "https://tobi.fun",
-                universalLink: "https://t.me/TobiCopilotBot?attach=wallet",
-                bridgeUrl: "https://ton-bridge.tobiwallet.app/bridge",
-                platforms: ["ios", "android", "macos", "windows", "linux"]
               },
               {
                 appName: "trustwalletTon",
@@ -95,30 +58,12 @@ function App() {
                 platforms: ["chrome", "ios", "android"]
               },
               {
-                appName: "bitgetWalletLite",
-                name: "Bitget Wallet Lite",
-                imageUrl: "https://raw.githubusercontent.com/bitgetwallet/download/main/logo/png/bitget_wallet_lite_logo.png",
-                aboutUrl: "https://web3.bitget.com",
-                universalLink: "https://t.me/BitgetWallet_TGBot?attach=wallet",
-                bridgeUrl: "https://ton-connect-bridge.bgwapi.io/bridge",
-                platforms: ["ios", "android", "macos", "windows", "linux"]
-              },
-              {
                 appName: "onekey",
                 name: "OneKey",
                 imageUrl: "https://common.onekey-asset.com/logo/onekey-x288.png",
                 aboutUrl: "https://onekey.so",
                 jsBridgeKey: "onekeyTonWallet",
                 platforms: ["chrome"]
-              },
-              {
-                appName: "tomoWallet",
-                name: "Tomo Wallet",
-                imageUrl: "https://pub.tomo.inc/logo.png",
-                aboutUrl: "https://www.tomo.inc/",
-                universalLink: "https://t.me/tomowalletbot?attach=wallet",
-                bridgeUrl: "https://go-bridge.tomo.inc/bridge",
-                platforms: ["ios", "android", "macos", "windows", "linux"]
               },
               {
                 appName: "hpyTonWallet",
@@ -189,15 +134,6 @@ function App() {
                 platforms: ["ios", "android", "macos", "windows", "linux"]
               },
               {
-                appName: "miraiapp-tg",
-                name: "Mirai Mini App",
-                imageUrl: "https://cdn.mirailabs.co/miraihub/miraiapp-tg-icon-288.png",
-                aboutUrl: "https://mirai.app",
-                universalLink: "https://t.me/MiraiAppBot?attach=wallet",
-                bridgeUrl: "https://bridge.mirai.app",
-                platforms: ["ios", "android", "macos", "windows", "linux"]
-              },
-              {
                 appName: "miraiapp",
                 name: "Mirai App",
                 imageUrl: "https://cdn.mirailabs.co/miraihub/miraiapp-icon-288.png",
@@ -215,24 +151,6 @@ function App() {
                 aboutUrl: 'https://www.nestwallet.xyz',
                 jsBridgeKey: 'nestwallet',
                 platforms: ['chrome']
-              },
-              {
-                appName: "Architec.ton",
-                name: "Architec.ton",
-                imageUrl: "https://raw.githubusercontent.com/Architec-Ton/wallet-tma/refs/heads/dev/public/images/arcwallet_logo.png",
-                aboutUrl: "https://architecton.tech",
-                universalLink: "https://t.me/architec_ton_bot?attach=wallet",
-                bridgeUrl: "https://tc.architecton.su/bridge",
-                platforms: ["ios", "android", "macos", "windows", "linux"]
-              },
-              {
-                appName: "uxuyWallet",
-                name: "UXUY Wallet",
-                imageUrl: "https://raw.githubusercontent.com/uxuycom/uxuy-docsite/main/static/assets/UXUYWallet-logo/UXUYWallet_logo_circle.svg",
-                aboutUrl: "https://docs.uxuy.com",
-                universalLink: "https://t.me/UXUYbot?attach=wallet",
-                bridgeUrl: "https://bridge.uxuy.me/bridge",
-                platforms: ["ios", "android", "macos", "windows", "linux"]
               },
               {
                 appName: "tonflow",
@@ -253,16 +171,6 @@ function App() {
                 universalLink: 'https://wallet.tonkeeper.com/ton-connect',
                 bridgeUrl: "https://bridge.tonapi.io/bridge",
                 platforms: ["ios", "android", "macos", "windows", "linux"]
-              },
-              {
-                appName: "hot",
-                name: "HOT",
-                imageUrl: "https://raw.githubusercontent.com/hot-dao/media/main/logo.png",
-                aboutUrl: "https://hot-labs.org/",
-                universalLink: "https://t.me/herewalletbot?attach=wallet",
-                bridgeUrl: "https://sse-bridge.hot-labs.org",
-                jsBridgeKey: "hotWallet",
-                platforms: ["ios", "android", "macos", "windows", "linux", "chrome", "safari", "firefox"]
               },
               {
                 appName: "u2uWallet",
