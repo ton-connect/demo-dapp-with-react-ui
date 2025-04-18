@@ -274,13 +274,20 @@ function App() {
                 platforms: ["ios", "android"]
               },
               {
-                appName: "koloWeb3Wallet",
-                name: "Kolo Web3 Wallet",
+                appName: "kolo",
+                name: "Kolo",
                 imageUrl: "https://raw.githubusercontent.com/onidev1/tc-assets/refs/heads/main/kolo_logo_288.png",
-                aboutUrl: "https://kolo.in/ua/cryptowallet",
-                universalLink: "https://t.me/kolo?attach=wallet",
+                aboutUrl: "https://kolo.xyz",
+                universalLink: "https://t.me/kolo/app?attach=wallet",
                 bridgeUrl: "https://web3-bridge.kolo.in/",
-                platforms: ["ios", "android", "macos", "windows", "linux"]
+                platforms: ["ios", "android", "macos", "windows", "linux"],
+                features: [
+                  {
+                    name: "SendTransaction",
+                    maxMessages: 4,
+                    extraCurrencySupported: false
+                  }
+                ]
               },
               {
                 appName: "walletverse",
