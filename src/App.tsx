@@ -268,6 +268,23 @@ function App() {
                 platforms: ["ios", "android", "macos", "windows", "linux", "chrome", "safari", "firefox"]
               },
               {
+                appName: "okxTonWallet",
+                name: "OKX",
+                imageUrl: "https://static.okx.com/cdn/assets/imgs/247/58E63FEA47A2B7D7.png",
+                aboutUrl: "https://www.okx.com/web3",
+                universalLink: "https://www.okx.com/download?appendQuery=true&deeplink=okx://web3/wallet/tonconnect",
+                bridgeUrl: "https://www.okx.com/tonbridge/discover/rpc/bridge",
+                jsBridgeKey: "okxTonWallet",
+                platforms: ["chrome", "safari", "firefox", "ios", "android"],
+                features: [
+                  {
+                    name: "SendTransaction",
+                    maxMessages: 4,
+                    extraCurrencySupported: false
+                  }
+                ]
+              },
+              {
                 appName: "okxWallet",
                 name: "OKX Wallet",
                 imageUrl: "https://static.coinall.ltd/cdn/wallet/banner/7d3ef66c-a121-489f-8621-579ea9faf240-288_appicon.png",
