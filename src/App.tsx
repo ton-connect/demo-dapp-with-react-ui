@@ -266,7 +266,24 @@ function App() {
                 bridgeUrl: "https://sse-bridge.hot-labs.org",
                 jsBridgeKey: "hotWallet",
                 platforms: ["ios", "android", "macos", "windows", "linux", "chrome", "safari", "firefox"]
-              }
+              },
+              {
+                appName: "okxWallet",
+                name: "OKX Wallet",
+                imageUrl: "https://static.coinall.ltd/cdn/wallet/banner/7d3ef66c-a121-489f-8621-579ea9faf240-288_appicon.png",
+                aboutUrl: "https://web3.okx.com",
+                universalLink: "https://web3.okx.com/download?appendQuery=true&deeplink=okxwallet://web3/wallet/tonconnect",
+                bridgeUrl: "https://web3.okx.com/tonbridge/discover/rpc/bridge",
+                jsBridgeKey: "okxTonWallet",
+                platforms: ["chrome", "safari", "firefox", "ios", "android"],
+                features: [
+                  {
+                    name: "SendTransaction",
+                    maxMessages: 4,
+                    extraCurrencySupported: false
+                  }
+                ]
+              },
             ]
           }}
           actionsConfiguration={{
