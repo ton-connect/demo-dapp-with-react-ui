@@ -14,7 +14,7 @@
     "@ton/core": "^0.56.3",
     "@ton/crypto": "^3.2.0",
     "@ton/ton": "^14.0.0",
-    "@tonconnect/ui-react": "2.1.1-beta.0",
+    "@tonconnect/ui-react": "^2.2.0-beta.0",
     "buffer": "^6.0.3",
     "eruda": "^2.11.2",
     "jose": "^5.2.4",
