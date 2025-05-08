@@ -6,6 +6,7 @@ import {Footer} from "./components/Footer/Footer";
 import {TonProofDemo} from "./components/TonProofDemo/TonProofDemo";
 import {CreateJettonDemo} from "./components/CreateJettonDemo/CreateJettonDemo";
 import {WalletBatchLimitsTester} from "./components/WalletBatchLimitsTester/WalletBatchLimitsTester";
+import {SignDataTester} from "./components/SignDataTester/SignDataTester";
 
 function App() {
   return (
@@ -311,6 +312,7 @@ function App() {
             <Header />
             <TxForm />
             <WalletBatchLimitsTester />
+            <SignDataTester />
             <CreateJettonDemo />
             <TonProofDemo />
             <Footer />
