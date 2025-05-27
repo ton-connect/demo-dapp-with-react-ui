@@ -235,15 +235,37 @@ export class SignDataService {
     const cell = Cell.fromBase64(payload.cell);
     const schemaHash = crc32.buf(Buffer.from(payload.schema, "utf8")) >>> 0; // unsigned crc32 hash
 
+    // Encode domain in DNS-like format (e.g. "example.com" -> "com\0example\0")
+    const encodedDomain = this.encodeDomainDnsLike(domain);
+
     const message = beginCell()
       .storeUint(0x75569022, 32) // prefix
       .storeUint(schemaHash, 32) // schema hash
       .storeUint(timestamp, 64) // timestamp
       .storeAddress(parsedAddr) // user wallet address
-      .storeStringRefTail(domain) // app domain
+      .storeStringRefTail(encodedDomain.toString("utf8")) // app domain (DNS-like encoded, snake stored)
       .storeRef(cell) // payload cell
       .endCell();
 
     return Buffer.from(message.hash());
+  }
+
+  /**
+   * Encodes domain name in DNS-like format.
+   * Example: "example.com" -> "com\0example\0"
+   */
+  private encodeDomainDnsLike(domain: string): Buffer {
+    const parts = domain.split(".").reverse(); // reverse for DNS-like encoding
+    const encoded: number[] = [];
+
+    for (const part of parts) {
+      // Add the part characters
+      for (let i = 0; i < part.length; i++) {
+        encoded.push(part.charCodeAt(i));
+      }
+      encoded.push(0); // null byte after each part
+    }
+
+    return Buffer.from(encoded);
   }
 }
