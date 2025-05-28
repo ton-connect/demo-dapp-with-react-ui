@@ -302,6 +302,16 @@ function App() {
                   }
                 ]
               },
+              {
+                appName: "Fearless",
+                name: "Fearless",
+                imageUrl: "https://raw.githubusercontent.com/soramitsu/shared-features-utils/master/icons/FW_icon_288.png",
+                aboutUrl: "https://fearlesswallet.io",
+                universalLink: "https://fearlesswallet.io/ton-connect",
+                bridgeUrl: "https://fearless-ton-bridge.odachi.soramitsu.co.jp/bridge",
+                jsBridgeKey: "Fearless",
+                platforms: ["ios", "android"]
+              }
             ]
           }}
           actionsConfiguration={{
