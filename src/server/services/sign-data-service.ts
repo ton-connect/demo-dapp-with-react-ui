@@ -44,35 +44,16 @@ export class SignDataService {
         walletStateInit,
       } = payload;
 
-      console.log("=== Sign Data Verification Started ===");
-      console.log("Address:", address);
-      console.log("Domain:", domain);
-      console.log("Timestamp:", timestamp);
-      console.log("Payload Type:", signDataPayload.type);
-      console.log("Signature:", signature);
-      console.log("WalletStateInit:", walletStateInit);
-
       // Check domain
       if (!allowedDomains.includes(domain)) {
-        console.log("❌ Domain not allowed:", domain);
         return false;
       }
-      console.log("✅ Domain check passed");
 
       // Check timestamp
       const now = Math.floor(Date.now() / 1000);
       if (now - validAuthTime > timestamp) {
-        console.log(
-          "❌ Timestamp expired - Now:",
-          now,
-          "Timestamp:",
-          timestamp,
-          "Valid time:",
-          validAuthTime
-        );
         return false;
       }
-      console.log("✅ Timestamp check passed");
 
       // Parse address and state init
       const parsedAddr = Address.parse(address);
@@ -86,31 +67,21 @@ export class SignDataService {
       let publicKey =
         tryParsePublicKey(stateInit) ?? (await getWalletPublicKey(address));
       if (!publicKey) {
-        console.log("❌ Public key not found for address:", address);
         return false;
       }
-      console.log("✅ Public key obtained");
 
       // 2.2. Check that provided public key equals to obtained public key
       const wantedPublicKey = Buffer.from(public_key, "hex");
       if (!publicKey.equals(wantedPublicKey)) {
-        console.log("❌ Public key mismatch");
-        console.log("Expected:", wantedPublicKey.toString("hex"));
-        console.log("Got:", publicKey.toString("hex"));
         return false;
       }
-      console.log("✅ Public key verification passed");
 
       // 2.3. Check that walletStateInit.hash() equals to address
       const wantedAddress = Address.parse(address);
       const contractAddr = contractAddress(wantedAddress.workChain, stateInit);
       if (!contractAddr.equals(wantedAddress)) {
-        console.log("❌ Address mismatch with state init");
-        console.log("Expected:", wantedAddress.toString());
-        console.log("Got:", contractAddr.toString());
         return false;
       }
-      console.log("✅ Address verification passed");
 
       // Create hash based on payload type
       const finalHash =
@@ -123,20 +94,13 @@ export class SignDataService {
               timestamp
             );
 
-      console.log("=== Hash Creation ===");
-      console.log("Payload Type:", signDataPayload.type);
-      console.log("Hash Length:", finalHash.length);
-      console.log("Hash Hex:", finalHash.toString("hex"));
-
       // Verify Ed25519 signature
-      console.log("=== Signature Verification ===");
       const isValid = nacl.sign.detached.verify(
         new Uint8Array(finalHash),
         new Uint8Array(Buffer.from(signature, "base64")),
         new Uint8Array(publicKey)
       );
 
-      console.log("Verification Result:", isValid ? "✅ VALID" : "❌ INVALID");
       return isValid;
     } catch (e) {
       console.error("Sign data verification error:", e);
@@ -155,16 +119,6 @@ export class SignDataService {
     domain: string,
     timestamp: number
   ): Promise<Buffer> {
-    console.log("=== Creating Text/Binary Hash ===");
-    console.log("Type:", payload.type);
-    console.log(
-      "Content:",
-      payload.type === "text" ? payload.text : payload.bytes
-    );
-    console.log("Domain:", domain);
-    console.log("Timestamp:", timestamp);
-    console.log("Address:", parsedAddr.toString());
-
     // Create workchain buffer
     const wcBuffer = Buffer.alloc(4);
     wcBuffer.writeInt32BE(parsedAddr.workChain);
@@ -188,16 +142,6 @@ export class SignDataService {
     const payloadLenBuffer = Buffer.alloc(4);
     payloadLenBuffer.writeUInt32BE(payloadBuffer.length);
 
-    console.log("=== Hash Components ===");
-    console.log("Workchain Buffer:", wcBuffer.toString("hex"));
-    console.log("Address Hash:", parsedAddr.hash.toString("hex"));
-    console.log("Domain Length:", domainLenBuffer.toString("hex"));
-    console.log("Domain:", domainBuffer.toString("hex"));
-    console.log("Timestamp:", tsBuffer.toString("hex"));
-    console.log("Type Prefix:", payloadPrefix.toString("hex"));
-    console.log("Payload Length:", payloadLenBuffer.toString("hex"));
-    console.log("Payload Buffer:", payloadBuffer.toString("hex"));
-
     // Build message
     const message = Buffer.concat([
       Buffer.from([0xff, 0xff]),
@@ -212,14 +156,8 @@ export class SignDataService {
       payloadBuffer,
     ]);
 
-    console.log("=== Final Message ===");
-    console.log("Message Length:", message.length);
-    console.log("Message Hex:", message.toString("hex"));
-
     // Hash message with sha256
     const hash = await sha256(message);
-    console.log("=== SHA256 Result ===");
-    console.log("Hash:", Buffer.from(hash).toString("hex"));
     return Buffer.from(hash);
   }
 
