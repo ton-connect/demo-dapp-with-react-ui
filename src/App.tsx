@@ -310,7 +310,7 @@ function App() {
                 universalLink: "https://fearlesswallet.io/ton-connect",
                 bridgeUrl: "https://fearless-ton-bridge.odachi.soramitsu.co.jp/bridge",
                 jsBridgeKey: "Fearless",
-                platforms: ["ios", "android"]
+                platforms: ["ios", "android", "chrome"]
               }
             ]
           }}
