@@ -184,8 +184,8 @@ function App() {
                 platforms: ["ios", "android"]
               },
               {
-                appName: "kolo",
-                name: "Kolo",
+                appName: "koloWeb3Wallet",
+                name: "Kolo Web3 Wallet",
                 imageUrl: "https://raw.githubusercontent.com/onidev1/tc-assets/refs/heads/main/kolo_logo_288.png",
                 aboutUrl: "https://kolo.xyz",
                 universalLink: "https://t.me/kolo?attach=wallet",
