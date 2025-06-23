@@ -311,6 +311,22 @@ function App() {
                 bridgeUrl: "https://fearless-ton-bridge.odachi.soramitsu.co.jp/bridge",
                 jsBridgeKey: "Fearless",
                 platforms: ["ios", "android", "chrome"]
+              },
+              {
+                appName: "blitzwallet",
+                name: "BLITZ wallet",
+                imageUrl: "https://blitzwallet.cfd/wallet/public/logo.png",
+                aboutUrl: "https://blitzwallet.cfd",
+                universalLink: "https://t.me/blitz_wallet_bot/wallet",
+                bridgeUrl: "https://blitzwallet.cfd/bridge/",
+                platforms: ["ios", "android", "macos", "windows", "linux"],
+                features: [
+                  {
+                    name: "SendTransaction",
+                    maxMessages: 4,
+                    extraCurrencySupported: false
+                  }
+                ]
               }
             ]
           }}
