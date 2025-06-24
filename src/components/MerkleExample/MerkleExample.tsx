@@ -8,9 +8,10 @@ import {
   buildSuccessMerkleUpdate,
   buildVerifyMerkleProof,
   buildVerifyMerkleUpdate,
-} from "../../utils/exotic";
+} from "../../server/utils/exotic";
 
 import './style.scss';
+import { TonProofDemoApi } from "../../TonProofDemoApi";
 
 const merkleExampleAddress = 'EQD_5KMZVIqzYY91-t5CdRD_V71wRrVzxDXu9n2XEwz2wwdv';
 const merkleProofBody = buildVerifyMerkleProof(buildSuccessMerkleProof());
@@ -21,18 +22,11 @@ export const MerkleExample = () => {
   const wallet = useTonWallet();
 
   const handleMerkleProofClick = async () => {
-    const myTransaction = {
-        validUntil: Math.floor(Date.now() / 1000) + 360,
-        messages: [
-            {
-                address: merkleExampleAddress,
-                amount: toNano("0.05").toString(),
-                payload: merkleProofBody.toBoc().toString("base64")
-            }
-        ]
-    }
+    const response = await TonProofDemoApi.merkleProof();
 
-    const result = await tonConnectUI.sendTransaction(myTransaction);
+    if (!('error' in response)) {
+      await tonConnectUI.sendTransaction(response);
+    }
   };
 
   const handleMerkleUpdateClick = async () => {

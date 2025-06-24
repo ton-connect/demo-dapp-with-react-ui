@@ -96,6 +96,31 @@ class TonProofDemoApiService {
     ).json();
   }
 
+  async merkleProof(): Promise<SendTransactionRequest> {
+    return await (
+      await fetch(`${this.host}/api/merkle_proof`, {
+        headers: {
+          Authorization: `Bearer ${this.accessToken}`,
+          "Content-type": "application/json",
+        },
+        method: "POST",
+        body: '',
+      })
+    ).json();
+  }
+
+  async merkleUpdate(): Promise<SendTransactionRequest> {
+    return await (
+      await fetch(`${this.host}/api/merkle_update`, {
+        headers: {
+          Authorization: `Bearer ${this.accessToken}`,
+          "Content-type": "application/json",
+        },
+        method: "POST",
+      })
+    ).json();
+  }
+
   async checkSignData(signDataResult: any, account: Account) {
     try {
       const reqBody = {
