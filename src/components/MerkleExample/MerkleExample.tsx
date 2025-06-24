@@ -13,9 +13,9 @@ import {
 import './style.scss';
 import { TonProofDemoApi } from "../../TonProofDemoApi";
 
-const merkleExampleAddress = 'EQD_5KMZVIqzYY91-t5CdRD_V71wRrVzxDXu9n2XEwz2wwdv';
-const merkleProofBody = buildVerifyMerkleProof(buildSuccessMerkleProof());
-const merkleUpdateBody = buildVerifyMerkleUpdate(buildSuccessMerkleUpdate());
+// const merkleExampleAddress = 'EQD_5KMZVIqzYY91-t5CdRD_V71wRrVzxDXu9n2XEwz2wwdv';
+// const merkleProofBody = buildVerifyMerkleProof(buildSuccessMerkleProof());
+// const merkleUpdateBody = buildVerifyMerkleUpdate(buildSuccessMerkleUpdate());
 
 export const MerkleExample = () => {
   const [tonConnectUI] = useTonConnectUI();
@@ -30,18 +30,21 @@ export const MerkleExample = () => {
   };
 
   const handleMerkleUpdateClick = async () => {
-    const myTransaction = {
-      validUntil: Math.floor(Date.now() / 1000) + 360,
-      messages: [
-        {
-          address: merkleExampleAddress,
-          amount: toNano("0.05").toString(),
-          payload: merkleUpdateBody.toBoc().toString("base64")
-        }
-      ]
-    }
+    // const myTransaction = {
+    //   validUntil: Math.floor(Date.now() / 1000) + 360,
+    //   messages: [
+    //     {
+    //       address: merkleExampleAddress,
+    //       amount: toNano("0.05").toString(),
+    //       payload: merkleUpdateBody.toBoc().toString("base64")
+    //     }
+    //   ]
+    // }
+    const response = await TonProofDemoApi.merkleUpdate();
 
-    await tonConnectUI.sendTransaction(myTransaction);
+    if (!('error' in response)) {
+      await tonConnectUI.sendTransaction(response);
+    }
   }
 
   return (
