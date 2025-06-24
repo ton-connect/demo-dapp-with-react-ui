@@ -7,6 +7,7 @@ import {TonProofDemo} from "./components/TonProofDemo/TonProofDemo";
 import {CreateJettonDemo} from "./components/CreateJettonDemo/CreateJettonDemo";
 import {WalletBatchLimitsTester} from "./components/WalletBatchLimitsTester/WalletBatchLimitsTester";
 import {SignDataTester} from "./components/SignDataTester/SignDataTester";
+import { MerkleExample } from "./components/MerkleExample/MerkleExample";
 
 function App() {
   return (
@@ -341,6 +342,7 @@ function App() {
             <SignDataTester />
             <CreateJettonDemo />
             <TonProofDemo />
+            <MerkleExample />
             <Footer />
         </div>
       </TonConnectUIProvider>
