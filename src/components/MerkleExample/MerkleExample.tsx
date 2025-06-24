@@ -8,18 +8,17 @@ import {
   buildSuccessMerkleUpdate,
   buildVerifyMerkleProof,
   buildVerifyMerkleUpdate,
-} from "../../server/wrappers/Exotic";
+} from "../../utils/exotic";
 
 import './style.scss';
 
+const merkleExampleAddress = 'EQD_5KMZVIqzYY91-t5CdRD_V71wRrVzxDXu9n2XEwz2wwdv';
+const merkleProofBody = buildVerifyMerkleProof(buildSuccessMerkleProof());
+const merkleUpdateBody = buildVerifyMerkleUpdate(buildSuccessMerkleUpdate());
+
 export const MerkleExample = () => {
-  const [data, setData] = useState({});
   const [tonConnectUI] = useTonConnectUI();
   const wallet = useTonWallet();
-
-  const merkleExampleAddress = 'EQD_5KMZVIqzYY91-t5CdRD_V71wRrVzxDXu9n2XEwz2wwdv';
-  const merkleProofBody = buildVerifyMerkleProof(buildSuccessMerkleProof());
-  const merkleUpdateBody = buildVerifyMerkleUpdate(buildSuccessMerkleUpdate());
 
   const handleMerkleProofClick = async () => {
     const myTransaction = {
