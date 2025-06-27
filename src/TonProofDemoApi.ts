@@ -7,9 +7,71 @@ import {
 import "./patch-local-storage-for-github-pages";
 import { CreateJettonRequestDto } from "./server/dto/create-jetton-request-dto";
 
+// Simple LRU Cache for payload tokens
+class PayloadTokenCache {
+  private cache = new Map<string, { value: string; createdAt: number }>();
+  private maxSize = 10;
+  private storageKey = "demo-api-payload-tokens-cache";
+
+  constructor() {
+    this.loadFromStorage();
+  }
+
+  private loadFromStorage(): void {
+    try {
+      const stored = localStorage.getItem(this.storageKey);
+      if (stored) {
+        const data = JSON.parse(stored);
+        this.cache = new Map(data);
+        this.cleanup(); // Ensure we don't exceed maxSize after loading
+      }
+    } catch (e) {
+      console.warn("Failed to load payload token cache from storage:", e);
+      this.cache.clear();
+    }
+  }
+
+  private saveToStorage(): void {
+    try {
+      const data = Array.from(this.cache.entries());
+      localStorage.setItem(this.storageKey, JSON.stringify(data));
+    } catch (e) {
+      console.warn("Failed to save payload token cache to storage:", e);
+    }
+  }
+
+  private cleanup(): void {
+    // Remove oldest entries if cache exceeds maxSize
+    while (this.cache.size > this.maxSize) {
+      const sortedEntries = Array.from(this.cache.entries()).sort(
+        ([, a], [, b]) => a.createdAt - b.createdAt
+      );
+
+      // Remove oldest entry
+      this.cache.delete(sortedEntries[0][0]);
+    }
+  }
+
+  set(key: string, value: string): void {
+    this.cache.set(key, { value, createdAt: Date.now() });
+    this.cleanup();
+    this.saveToStorage();
+  }
+
+  get(key: string): string | null {
+    const entry = this.cache.get(key);
+    return entry ? entry.value : null;
+  }
+
+  clear(): void {
+    this.cache.clear();
+    localStorage.removeItem(this.storageKey);
+  }
+}
+
 class TonProofDemoApiService {
-  private readonly payloadTokenKey = "demo-api-payload-token";
   private readonly accessTokenKey = "demo-api-access-token";
+  private payloadTokenCache = new PayloadTokenCache();
 
   private host = document.baseURI.replace(/\/$/, "");
 
@@ -19,10 +81,14 @@ class TonProofDemoApiService {
 
   constructor() {
     this.accessToken = localStorage.getItem(this.accessTokenKey);
+  }
 
-    if (!this.accessToken) {
-      this.generatePayload();
-    }
+  private setPayloadToken(payload: string, token: string): void {
+    this.payloadTokenCache.set(payload, token);
+  }
+
+  private getPayloadToken(payload: string): string | null {
+    return this.payloadTokenCache.get(payload);
   }
 
   async generatePayload(): Promise<ConnectAdditionalRequest | null> {
@@ -32,7 +98,7 @@ class TonProofDemoApiService {
           method: "POST",
         })
       ).json();
-      localStorage.setItem(this.payloadTokenKey, response.payloadToken);
+      this.setPayloadToken(response.payloadTokenHash, response.payloadToken);
       return {
         tonProof: response.payloadTokenHash,
       };
@@ -54,7 +120,7 @@ class TonProofDemoApiService {
           ...proof,
           state_init: account.walletStateInit,
         },
-        payloadToken: localStorage.getItem(this.payloadTokenKey)
+        payloadToken: this.getPayloadToken(proof.payload),
       };
 
       const response = await (
@@ -109,7 +175,7 @@ class TonProofDemoApiService {
           "Content-type": "application/json",
         },
         method: "POST",
-        body: '',
+        body: "",
       })
     ).json();
   }
@@ -159,7 +225,6 @@ class TonProofDemoApiService {
   reset() {
     this.accessToken = null;
     localStorage.removeItem(this.accessTokenKey);
-    this.generatePayload();
   }
 }
 
