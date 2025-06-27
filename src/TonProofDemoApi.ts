@@ -8,7 +8,8 @@ import "./patch-local-storage-for-github-pages";
 import { CreateJettonRequestDto } from "./server/dto/create-jetton-request-dto";
 
 class TonProofDemoApiService {
-  private localStorageKey = "demo-api-access-token";
+  private readonly payloadTokenKey = "demo-api-payload-token";
+  private readonly accessTokenKey = "demo-api-access-token";
 
   private host = document.baseURI.replace(/\/$/, "");
 
@@ -17,7 +18,7 @@ class TonProofDemoApiService {
   public readonly refreshIntervalMs = 9 * 60 * 1000;
 
   constructor() {
-    this.accessToken = localStorage.getItem(this.localStorageKey);
+    this.accessToken = localStorage.getItem(this.accessTokenKey);
 
     if (!this.accessToken) {
       this.generatePayload();
@@ -31,7 +32,10 @@ class TonProofDemoApiService {
           method: "POST",
         })
       ).json();
-      return { tonProof: response.payload as string };
+      localStorage.setItem(this.payloadTokenKey, response.payloadToken);
+      return {
+        tonProof: response.payloadTokenHash,
+      };
     } catch {
       return null;
     }
@@ -50,6 +54,7 @@ class TonProofDemoApiService {
           ...proof,
           state_init: account.walletStateInit,
         },
+        payloadToken: localStorage.getItem(this.payloadTokenKey)
       };
 
       const response = await (
@@ -60,7 +65,7 @@ class TonProofDemoApiService {
       ).json();
 
       if (response?.token) {
-        localStorage.setItem(this.localStorageKey, response.token);
+        localStorage.setItem(this.accessTokenKey, response.token);
         this.accessToken = response.token;
       }
     } catch (e) {
@@ -153,7 +158,7 @@ class TonProofDemoApiService {
 
   reset() {
     this.accessToken = null;
-    localStorage.removeItem(this.localStorageKey);
+    localStorage.removeItem(this.accessTokenKey);
     this.generatePayload();
   }
 }

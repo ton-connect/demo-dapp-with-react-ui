@@ -1,3 +1,4 @@
+import {sha256} from "@ton/crypto";
 import {HttpResponseResolver} from "msw";
 import {CheckProofRequest} from "../dto/check-proof-request-dto";
 import {TonApiService} from "../services/ton-api-service";
@@ -22,9 +23,13 @@ export const checkProof: HttpResponseResolver = async ({request}) => {
       return badRequest({error: 'Invalid proof'});
     }
 
-    const payloadToken = body.proof.payload;
+    const payloadTokenHash = body.proof.payload;
+    const payloadToken = body.payloadToken;
     if (!await verifyToken(payloadToken)) {
       return badRequest({error: 'Invalid token'});
+    }
+    if ((await sha256(payloadToken)).toString('hex') !== payloadTokenHash) {
+      return badRequest({error: 'Invalid payload token hash'})
     }
 
     const token = await createAuthToken({address: body.address, network: body.network});

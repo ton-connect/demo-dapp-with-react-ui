@@ -1,7 +1,7 @@
-import {sha256} from "@ton/crypto";
+import {getSecureRandomBytes, sha256} from "@ton/crypto";
 import {Address, Cell, contractAddress, loadStateInit} from "@ton/ton";
 import {Buffer} from "buffer";
-import {randomBytes, sign} from "tweetnacl";
+import {sign} from "tweetnacl";
 import {CheckProofRequestDto} from "../dto/check-proof-request-dto";
 import {tryParsePublicKey} from "../wrappers/wallets-data";
 
@@ -16,10 +16,10 @@ const validAuthTime = 15 * 60; // 15 minute
 export class TonProofService {
 
   /**
-   * Generate a random payload.
+   * Generate a random bytes.
    */
-  public generatePayload(): string {
-    return Buffer.from(randomBytes(32)).toString('hex');
+  public async generateRandomBytes(): Promise<Buffer> {
+    return await getSecureRandomBytes(32);
   }
 
   /**

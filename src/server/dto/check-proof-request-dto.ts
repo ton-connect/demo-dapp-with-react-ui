@@ -15,6 +15,7 @@ export const CheckProofRequest = zod.object({
     signature: zod.string(),
     state_init: zod.string(),
   }),
+  payloadToken: zod.string(),
 });
 
 export type CheckProofRequestDto = zod.infer<typeof CheckProofRequest>;

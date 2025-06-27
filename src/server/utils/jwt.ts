@@ -15,7 +15,7 @@ export type AuthToken = {
 };
 
 export type PayloadToken = {
-  payload: string;
+  randomBytes: string;
 };
 
 /**

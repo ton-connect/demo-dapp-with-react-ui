@@ -1,3 +1,4 @@
+import {sha256} from "@ton/crypto";
 import {HttpResponseResolver} from "msw";
 import {TonProofService} from "../services/ton-proof-service";
 import {badRequest, ok} from "../utils/http-utils";
@@ -12,10 +13,16 @@ export const generatePayload: HttpResponseResolver = async () => {
   try {
     const service = new TonProofService();
 
-    const payload = service.generatePayload();
-    const payloadToken = await createPayloadToken({payload: payload});
+    const randomBytes = await service.generateRandomBytes();
+    const payloadToken = await createPayloadToken({
+      randomBytes: randomBytes.toString('hex')
+    });
+    const payloadTokenHash = (await sha256(payloadToken)).toString('hex');
 
-    return ok({payload: payloadToken});
+    return ok({
+      payloadToken: payloadToken,
+      payloadTokenHash: payloadTokenHash,
+    });
   } catch (e) {
     return badRequest({error: 'Invalid request', trace: e});
   }
