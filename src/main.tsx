@@ -1,6 +1,6 @@
 import './patch-local-storage-for-github-pages';
 import './polyfills';
-import eruda from "eruda";
+import VConsole from 'vconsole';
 
 import React, {StrictMode} from 'react'
 import {render} from 'react-dom';
@@ -8,7 +8,8 @@ import App from './App'
 import './index.scss'
 import {runSingleInstance} from "./utils/run-signle-instance";
 
-eruda.init();
+const vConsole = new VConsole({ theme: 'dark'});
+
 
 async function enableMocking() {
   const host = document.baseURI.replace(/\/$/, '');
