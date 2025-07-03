@@ -328,6 +328,16 @@ function App() {
                     extraCurrencySupported: false
                   }
                 ]
+              },
+              {
+                appName: "GateWallet",
+                name: "GateWallet",
+                imageUrl: "https://img.gatedataimg.com/prd-ordinal-imgs/036f07bb8730716e/gateio-0925.png",
+                aboutUrl: "https://www.gate.io/",
+                bridgeUrl: "https://dapp.gateio.services/tonbridge_api/bridge/v1",
+                jsBridgeKey: "gatetonwallet",
+                platforms: ["ios", "android"],
+                universalLink: "https://gate.onelink.me/Hls0/web3?gate_web3_wallet_universal_type=ton_connect"
               }
             ]
           }}
