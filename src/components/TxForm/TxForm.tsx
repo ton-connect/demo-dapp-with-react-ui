@@ -1,7 +1,10 @@
 import React, {useCallback, useState} from 'react';
+import { beginCell } from '@ton/ton';
 import ReactJson, {InteractionProps} from 'react-json-view';
 import './style.scss';
 import {SendTransactionRequest, useTonConnectUI, useTonWallet} from "@tonconnect/ui-react";
+
+const defaultBody = beginCell().storeUint(0, 32).storeStringTail("Hello!").endCell();
 
 // In this example, we are using a predefined smart contract state initialization (`stateInit`)
 // to interact with an "EchoContract". This contract is designed to send the value back to the sender,
@@ -19,7 +22,7 @@ const defaultTx: SendTransactionRequest = {
       // (optional) State initialization in boc base64 format.
       stateInit: 'te6cckEBBAEAOgACATQCAQAAART/APSkE/S88sgLAwBI0wHQ0wMBcbCRW+D6QDBwgBDIywVYzxYh+gLLagHPFsmAQPsAlxCarA==',
       // (optional) Payload in boc base64 format.
-      payload: 'te6ccsEBAQEADAAMABQAAAAASGVsbG8hCaTc/g==',
+      payload: defaultBody.toBoc().toString('base64'),
     },
 
     // Uncomment the following message to send two messages in one transaction.
