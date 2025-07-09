@@ -338,6 +338,27 @@ function App() {
                 jsBridgeKey: "gatetonwallet",
                 platforms: ["ios", "android"],
                 universalLink: "https://gate.onelink.me/Hls0/web3?gate_web3_wallet_universal_type=ton_connect"
+              },
+              {
+                appName: "cactuslink",
+                name: "Cactus Link",
+                imageUrl: "https://downloads.mycactus.com/288_cactus_link.png",
+                aboutUrl: "https://www.mycactus.com/defi-connector",
+                jsBridgeKey: "cactuslink_ton",
+                platforms: ["chrome"],
+                features: [
+                  {
+                    name: "SendTransaction",
+                    maxMessages: 255,
+                    extraCurrencySupported: false
+                  },
+                  {
+                    name: "SignData",
+                    types: [
+                      "text", "binary"
+                    ]
+                  }
+                ]
               }
             ]
           }}
