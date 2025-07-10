@@ -11,14 +11,12 @@ import { SendTransactionRequest, useTonConnectUI, useTonWallet } from "@tonconne
 import { TonProofDemoApi } from '../../TonProofDemoApi';
 import { CHAIN } from '@tonconnect/ui-react';
 
-<<<<<<< Updated upstream
 // In this example, we are using a predefined smart contract state initialization (`stateInit`)
 // to interact with an "EchoContract". This contract is designed to send the value back to the sender,
 // serving as a testing tool to prevent users from accidentally spending money.
-=======
+
 const defaultBody = beginCell().storeUint(0, 32).storeStringTail("Hello!").endCell();
 
->>>>>>> Stashed changes
 const defaultTx: SendTransactionRequest = {
   validUntil: Math.floor(Date.now() / 1000) + 600,
   messages: [
@@ -26,12 +24,7 @@ const defaultTx: SendTransactionRequest = {
       address: 'EQCKWpx7cNMpvmcN5ObM5lLUZHZRFKqYA4xmw9jOry0ZsF9M',
       amount: '5000000',
       stateInit: 'te6cckEBBAEAOgACATQCAQAAART/APSkE/S88sgLAwBI0wHQ0wMBcbCRW+D6QDBwgBDIywVYzxYh+gLLagHPFsmAQPsAlxCarA==',
-<<<<<<< Updated upstream
-      // (optional) Payload in boc base64 format.
-      payload: 'te6ccsEBAQEADAAMABQAAAAASGVsbG8hCaTc/g==',
-=======
       payload: defaultBody.toBoc().toString('base64'),
->>>>>>> Stashed changes
     },
   ],
 };
