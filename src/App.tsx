@@ -8,6 +8,7 @@ import {CreateJettonDemo} from "./components/CreateJettonDemo/CreateJettonDemo";
 import {WalletBatchLimitsTester} from "./components/WalletBatchLimitsTester/WalletBatchLimitsTester";
 import {SignDataTester} from "./components/SignDataTester/SignDataTester";
 import { MerkleExample } from "./components/MerkleExample/MerkleExample";
+import { FindTransactionDemo } from './components/FindTransactionDemo/FindTransactionDemo';
 
 function App() {
   return (
@@ -373,6 +374,7 @@ function App() {
             <SignDataTester />
             <CreateJettonDemo />
             <TonProofDemo />
+            <FindTransactionDemo />
             <MerkleExample />
             <Footer />
         </div>

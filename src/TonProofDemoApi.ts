@@ -222,9 +222,32 @@ class TonProofDemoApiService {
     }
   }
 
+  async findTransactionByExternalMessage(boc: string, network: 'mainnet' | 'testnet') {
+    const response = await (
+      await fetch(`${this.host}/api/find_transaction_by_external_message`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ boc, network }),
+      })
+    ).json();
+    return response.transaction;
+  }
+
   reset() {
     this.accessToken = null;
     localStorage.removeItem(this.accessTokenKey);
+  }
+
+  async waitForTransaction(inMessageBoc: string, network: 'mainnet' | 'testnet') {
+    const response = await (
+      await fetch(`${this.host}/api/wait_for_transaction`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ inMessageBoc, network }),
+      })
+    ).json();
+
+    return response.transaction;
   }
 }
 
