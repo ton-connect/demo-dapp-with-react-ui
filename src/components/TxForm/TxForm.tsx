@@ -1,11 +1,7 @@
-<<<<<<< Updated upstream
-import React, {useCallback, useState} from 'react';
-import ReactJson, {InteractionProps} from 'react-json-view';
-=======
+
 import React, { useCallback, useState } from 'react';
 import { beginCell } from '@ton/ton';
 import ReactJson, { InteractionProps } from 'react-json-view';
->>>>>>> Stashed changes
 import './style.scss';
 import { SendTransactionRequest, useTonConnectUI, useTonWallet } from "@tonconnect/ui-react";
 import { TonProofDemoApi } from '../../TonProofDemoApi';
