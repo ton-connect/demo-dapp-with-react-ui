@@ -1,9 +1,9 @@
-import {useTonConnectUI, useTonWallet} from "@tonconnect/ui-react";
-import React, {useState} from 'react';
+import { useTonConnectUI, useTonWallet } from "@tonconnect/ui-react";
+import React, { useState } from 'react';
 import ReactJson from 'react-json-view';
 import './style.scss';
-import {CreateJettonRequestDto} from "../../server/dto/create-jetton-request-dto";
-import {TonProofDemoApi} from "../../TonProofDemoApi";
+import { CreateJettonRequestDto } from "../../server/dto/create-jetton-request-dto";
+import { TonProofDemoApi } from "../../TonProofDemoApi";
 
 const jetton: CreateJettonRequestDto = {
 	name: 'Joint Photographic Experts Group',
@@ -39,7 +39,14 @@ export const CreateJettonDemo = () => {
 			) : (
 				<div className="ton-proof-demo__error">Connect wallet to send transaction</div>
 			)}
-			<ReactJson src={data} name="response" theme="ocean" />
+			{data && Object.keys(data).length > 0 && (
+				<>
+					<div className="find-transaction-demo__json-label">Response</div>
+					<div className="find-transaction-demo__json-view">
+						<ReactJson src={data} name={false} theme="ocean" collapsed={false} />
+					</div>
+				</>
+			)}
 		</div>
 	);
 }

@@ -1,8 +1,8 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import ReactJson from 'react-json-view';
 import './style.scss';
-import {TonProofDemoApi} from "../../TonProofDemoApi";
-import {useTonConnectUI, useTonWallet} from "@tonconnect/ui-react";
+import { TonProofDemoApi } from "../../TonProofDemoApi";
+import { useTonConnectUI, useTonWallet } from "@tonconnect/ui-react";
 import useInterval from "../../hooks/useInterval";
 
 
@@ -80,7 +80,14 @@ export const TonProofDemo = () => {
 			) : (
 				<div className="ton-proof-demo__error">Connect wallet to call API</div>
 			)}
-			<ReactJson src={data} name="response" theme="ocean" />
+			{data && Object.keys(data).length > 0 && (
+				<>
+					<div className="find-transaction-demo__json-label">Response</div>
+					<div className="find-transaction-demo__json-view">
+						<ReactJson src={data} name={false} theme="ocean" collapsed={false} />
+					</div>
+				</>
+			)}
 		</div>
 	);
 }
