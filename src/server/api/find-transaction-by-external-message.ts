@@ -81,12 +81,11 @@ export const findTransactionByExternalMessage: HttpResponseResolver = async ({ r
         });
 
         const transaction = await getTransactionByInMessage(boc, client);
-
         if (!transaction) {
             return notFound({ error: 'Transaction not found' });
         }
 
-        return ok({ transaction });
+        return ok({ transaction: { ...transaction, hash: transaction.hash().toString('base64') } });
     } catch (e) {
         return badRequest({ error: 'Invalid request', trace: e instanceof Error ? e.message : e });
     }

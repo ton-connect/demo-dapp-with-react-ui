@@ -1,7 +1,7 @@
 import { Cell, loadMessage, TonClient, Transaction } from "@ton/ton";
 import { getNormalizedExtMessageHash, retry } from "../utils/transactions-utils";
 import { HttpResponseResolver } from "msw";
-import { badRequest, ok } from "../utils/http-utils";
+import { badRequest, notFound, ok } from "../utils/http-utils";
 
 async function waitForTransaction(
     inMessageBoc: string,
@@ -57,7 +57,11 @@ export const waitForTransactionResolver: HttpResponseResolver = async ({ request
             endpoint: `https://${network === 'testnet' ? 'tesnet.' : ''}toncenter.com/api/v2/jsonRPC`,
         });
         const transaction = await waitForTransaction(inMessageBoc, client);
-        return ok({ transaction });
+        if (!transaction) {
+            return notFound({ error: 'Transaction not found' });
+        }
+
+        return ok({ transaction: { ...transaction, hash: transaction.hash().toString('base64') } });
     } catch (e) {
         return badRequest({ error: 'Invalid request', trace: e instanceof Error ? e.message : e });
     }
