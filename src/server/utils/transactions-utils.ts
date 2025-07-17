@@ -19,7 +19,7 @@ export function getNormalizedExtMessageHash(message: any) {
 /**
  * Retries async fn with delay and count.
  */
-export async function retry(fn: () => Promise<any>, options: { retries: number; delay: number }) {
+export async function retry<T>(fn: () => Promise<T>, options: { retries: number; delay: number }): Promise<T> {
     let lastError: Error | undefined;
     for (let i = 0; i < options.retries; i++) {
         try {
