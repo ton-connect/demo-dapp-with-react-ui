@@ -19,21 +19,21 @@ export function SignDataTester() {
     setSignDataRequest(null);
     setSignDataResponse(null);
     setVerificationResult(null);
-    
+
     try {
       const requestPayload = {
         type: 'text' as const,
         text: 'I confirm this test signature request.',
       };
-      
+
       setSignDataRequest(requestPayload);
       console.log('📤 Sign Data Request (Text):', requestPayload);
-      
+
       const result = await tonConnectUi.signData(requestPayload);
-      
+
       setSignDataResponse(result);
       console.log('📥 Sign Data Response (Text):', result);
-      
+
       // Verify the signature
       if (wallet) {
         const verification = await TonProofDemoApi.checkSignData(result, wallet.account);
@@ -56,7 +56,7 @@ export function SignDataTester() {
     setSignDataRequest(null);
     setSignDataResponse(null);
     setVerificationResult(null);
-    
+
     try {
       // Example binary data (random bytes)
       const binaryData = Buffer.from('I confirm this test signature request.', 'ascii');
@@ -67,12 +67,12 @@ export function SignDataTester() {
 
       setSignDataRequest(requestPayload);
       console.log('📤 Sign Data Request (Binary):', requestPayload);
-      
+
       const result = await tonConnectUi.signData(requestPayload);
-      
+
       setSignDataResponse(result);
       console.log('📥 Sign Data Response (Binary):', result);
-      
+
       // Verify the signature
       if (wallet) {
         const verification = await TonProofDemoApi.checkSignData(result, wallet.account);
@@ -95,7 +95,7 @@ export function SignDataTester() {
     setSignDataRequest(null);
     setSignDataResponse(null);
     setVerificationResult(null);
-    
+
     try {
       // Create a simple cell with a message
       const text = "Test message in cell";
@@ -109,15 +109,15 @@ export function SignDataTester() {
         schema: 'message#_ len:uint7 {len <= 127} text:(bits len * 8) = Message;',
         cell: cell.toBoc().toString('base64'),
       };
-      
+
       setSignDataRequest(requestPayload);
       console.log('📤 Sign Data Request (Cell):', requestPayload);
-      
+
       const result = await tonConnectUi.signData(requestPayload);
-      
+
       setSignDataResponse(result);
       console.log('📥 Sign Data Response (Cell):', result);
-      
+
       // Verify the signature
       if (wallet) {
         const verification = await TonProofDemoApi.checkSignData(result, wallet.account);
@@ -137,11 +137,11 @@ export function SignDataTester() {
   return (
     <div className="sign-data-tester">
       <h3>Sign Data Test & Verification</h3>
-      
+
       <div className="sign-data-tester__info">
         Test different types of data signing: text, binary, and cell formats with signature verification
       </div>
-      
+
       {wallet ? (
         <div className="sign-data-tester__buttons">
           <button onClick={handleTextSign}>
@@ -162,22 +162,28 @@ export function SignDataTester() {
 
       {signDataRequest && (
         <div className="sign-data-tester__debug">
-          <h4>📤 Sign Data Request</h4>
-          <ReactJson src={signDataRequest} name="request" theme="ocean" collapsed={false} />
+          <div className="find-transaction-demo__json-label">📤 Sign Data Request</div>
+          <div className="find-transaction-demo__json-view">
+            <ReactJson src={signDataRequest} name={false} theme="ocean" collapsed={false} />
+          </div>
         </div>
       )}
 
       {signDataResponse && (
         <div className="sign-data-tester__debug">
-          <h4>📥 Sign Data Response</h4>
-          <ReactJson src={signDataResponse} name="response" theme="ocean" collapsed={false} />
+          <div className="find-transaction-demo__json-label">📥 Sign Data Response</div>
+          <div className="find-transaction-demo__json-view">
+            <ReactJson src={signDataResponse} name={false} theme="ocean" collapsed={false} />
+          </div>
         </div>
       )}
 
       {verificationResult && (
         <div className="sign-data-tester__debug">
-          <h4>✅ Verification Result</h4>
-          <ReactJson src={verificationResult} name="verification" theme="ocean" collapsed={false} />
+          <div className="find-transaction-demo__json-label">✅ Verification Result</div>
+          <div className="find-transaction-demo__json-view">
+            <ReactJson src={verificationResult} name={false} theme="ocean" collapsed={false} />
+          </div>
         </div>
       )}
     </div>
