@@ -75,7 +75,7 @@ export function merkleFixture() {
 
 export function buildSuccessMerkleProof() {
   const { dict, merkleRoot, address } = merkleFixture();
-  const merkleProof = dict.generateMerkleProof(address);
+  const merkleProof = dict.generateMerkleProof([address]);
   return { merkleRoot, merkleProof };
 }
 

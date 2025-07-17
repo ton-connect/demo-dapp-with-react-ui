@@ -2,7 +2,6 @@ import { beginCell, Cell, storeStateInit, toNano } from "@ton/core";
 import {Address} from "@ton/ton";
 import {CHAIN} from "@tonconnect/sdk";
 import {HttpResponseResolver} from "msw";
-import {CreateJettonRequest} from "../dto/create-jetton-request-dto";
 import {badRequest, ok, unauthorized} from "../utils/http-utils";
 import {decodeAuthToken, verifyToken} from "../utils/jwt";
 import { buildSuccessMerkleProof, buildVerifyMerkleProof, Exotic } from "../utils/exotic";
