@@ -1,4 +1,3 @@
-
 import React, { useCallback, useState } from 'react';
 import { beginCell } from '@ton/ton';
 import ReactJson, { InteractionProps } from 'react-json-view';
@@ -6,6 +5,8 @@ import './style.scss';
 import { SendTransactionRequest, useTonConnectUI, useTonWallet } from "@tonconnect/ui-react";
 import { TonProofDemoApi } from '../../TonProofDemoApi';
 import { CHAIN } from '@tonconnect/ui-react';
+
+const defaultBody = beginCell().storeUint(0, 32).storeStringTail("Hello!").endCell();
 
 // In this example, we are using a predefined smart contract state initialization (`stateInit`)
 // to interact with an "EchoContract". This contract is designed to send the value back to the sender,
@@ -19,8 +20,10 @@ const defaultTx: SendTransactionRequest = {
     {
       address: 'EQCKWpx7cNMpvmcN5ObM5lLUZHZRFKqYA4xmw9jOry0ZsF9M',
       amount: '5000000',
-      stateInit: 'te6cckEBBAEAOgACATQCAQAAART/APSkE/S88sgLAwBI0wHQ0wMBcbCRW+D6QDBwgBDIywVYzxYh+gLLagHPFsmAQPsAlxCarA==',
+      // (optional) Body in boc base64 format.
       payload: defaultBody.toBoc().toString('base64'),
+      // (optional) State init in boc base64 format.
+      stateInit: 'te6cckEBBAEAOgACATQCAQAAART/APSkE/S88sgLAwBI0wHQ0wMBcbCRW+D6QDBwgBDIywVYzxYh+gLLagHPFsmAQPsAlxCarA==',
     },
   ],
 };
