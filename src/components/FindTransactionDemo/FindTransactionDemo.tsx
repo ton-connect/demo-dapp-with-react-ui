@@ -7,7 +7,7 @@ import './style.scss';
 import { TonProofDemoApi } from '../../TonProofDemoApi';
 
 export const FindTransactionDemo = () => {
-    const [boc, setBoc] = useState('');
+    const [boc, setBoc] = useState('te6cckEBBQEA6wAB4YgB76ksIXpmobiUHDUtWosNdLgI+loKYwC+3DgXeRr2DJ4F4G+ja0rbyhi5yzD+xbfXI1owr5X3/uucREXZXZP4dqxPXukwqPGVrKzUL0g80tYaTgh95b0myTcmVFMS8cTIOU1NGLtDx7h4AAAQ8AAcAQJ7YgBFLU49uGmU3zOG8nNmcylqMjsoilVMAcYzYexnV5aM2BpiWgAAAAAAAAAAAAAAAAACMAAAAAEhlbGxvIYCBAEU/wD0pBP0vPLICwMASNMB0NMDAXGwkVvg+kAwcIAQyMsFWM8WIfoCy2oBzxbJgED7AAAAGE8sBQ==');
     const [network, setNetwork] = useState<'mainnet' | 'testnet'>('mainnet');
     const [txLoading, setTxLoading] = useState(false);
     const [txError, setTxError] = useState<string | null>(null);
