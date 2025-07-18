@@ -319,7 +319,7 @@ function App() {
                 name: "BLITZ wallet",
                 imageUrl: "https://blitzwallet.cfd/wallet/public/logo.png",
                 aboutUrl: "https://blitzwallet.cfd",
-                universalLink: "https://t.me/blitz_wallet_bot/wallet",
+                universalLink: "https://t.me/blitz_wallet_bot?attach=wallet",
                 bridgeUrl: "https://blitzwallet.cfd/bridge/",
                 platforms: ["ios", "android", "macos", "windows", "linux"],
                 features: [
