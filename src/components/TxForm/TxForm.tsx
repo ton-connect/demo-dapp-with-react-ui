@@ -6,8 +6,6 @@ import { SendTransactionRequest, useTonConnectUI, useTonWallet } from "@tonconne
 import { TonProofDemoApi } from '../../TonProofDemoApi';
 import { CHAIN } from '@tonconnect/ui-react';
 
-const defaultBody = beginCell().storeUint(0, 32).storeStringTail("Hello!").endCell();
-
 // In this example, we are using a predefined smart contract state initialization (`stateInit`)
 // to interact with an "EchoContract". This contract is designed to send the value back to the sender,
 // serving as a testing tool to prevent users from accidentally spending money.
