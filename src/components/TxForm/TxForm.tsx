@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { beginCell } from '@ton/ton';
 import ReactJson, { InteractionProps } from 'react-json-view';
 import './style.scss';

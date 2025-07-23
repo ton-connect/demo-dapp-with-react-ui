@@ -9,6 +9,7 @@ import {WalletBatchLimitsTester} from "./components/WalletBatchLimitsTester/Wall
 import {SignDataTester} from "./components/SignDataTester/SignDataTester";
 import { MerkleExample } from "./components/MerkleExample/MerkleExample";
 import { FindTransactionDemo } from './components/FindTransactionDemo/FindTransactionDemo';
+import { TransferUsdt } from './components/TransferUsdt/TransferUsdt';
 
 function App() {
   return (
@@ -372,6 +373,7 @@ function App() {
             <TxForm />
             <WalletBatchLimitsTester />
             <SignDataTester />
+            <TransferUsdt/>
             <CreateJettonDemo />
             <TonProofDemo />
             <FindTransactionDemo />
