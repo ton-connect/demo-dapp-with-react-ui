@@ -336,10 +336,17 @@ function App() {
                 name: "GateWallet",
                 imageUrl: "https://img.gatedataimg.com/prd-ordinal-imgs/036f07bb8730716e/gateio-0925.png",
                 aboutUrl: "https://www.gate.io/",
-                bridgeUrl: "https://dapp.gateio.services/tonbridge_api/bridge/v1",
                 jsBridgeKey: "gatetonwallet",
+                bridgeUrl: "https://dapp.gateio.services/tonbridge_api/bridge/v1",
                 platforms: ["ios", "android"],
-                universalLink: "https://gate.onelink.me/Hls0/web3?gate_web3_wallet_universal_type=ton_connect"
+                universalLink: "https://gate.onelink.me/Hls0/web3?gate_web3_wallet_universal_type=ton_connect",
+                features: [
+                  {
+                    name: "SendTransaction",
+                    maxMessages: 4,
+                    extraCurrencySupported: false
+                  }
+                ]
               },
               {
                 appName: "cactuslink",
