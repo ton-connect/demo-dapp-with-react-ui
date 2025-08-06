@@ -7,6 +7,11 @@ import {render} from 'react-dom';
 import App from './App'
 import './index.scss'
 import {runSingleInstance} from "./utils/run-single-instance";
+import { enableQaMode } from '@tonconnect/ui-react';
+
+if (import.meta.env.VITE_QA_MODE === 'enable') {
+  enableQaMode();
+}
 
 eruda.init();
 
