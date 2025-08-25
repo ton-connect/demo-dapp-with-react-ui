@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host --force",
-    "build": "tsc && GH_PAGES=true VITE_GH_PAGES=true vite build",
-    "build:dev": "tsc && vite build",
+    "build": "tsc && GH_PAGES=true VITE_GH_PAGES=true vite build && cp ./public/mockServiceWorkerDemo.js ./docs/mockServiceWorker.js",
+    "build:dev": "tsc && vite build && cp ./public/mockServiceWorkerDemo.js ./docs/mockServiceWorker.js",
     "preview": "vite preview"
   },
   "dependencies": {
