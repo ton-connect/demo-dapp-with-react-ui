@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host --force",
-    "build": "tsc && GH_PAGES=true VITE_GH_PAGES=true vite build && cp ./public/mockServiceWorkerDemo.js ./docs/mockServiceWorker.js",
-    "build:dev": "tsc && vite build && cp ./public/mockServiceWorkerDemo.js ./docs/mockServiceWorker.js",
-    "preview": "vite preview"
+    "dev": "VITE_MANIFEST_URL=https://ton-connect.github.io/demo-dapp-with-react-ui/tonconnect-manifest.json vite --host --force",
+    "build": "tsc && GH_PAGES=true VITE_GH_PAGES=true VITE_MANIFEST_URL=https://ton-connect.github.io/demo-dapp-with-react-ui/tonconnect-manifest.json vite build && cp ./public/mockServiceWorkerDemo.js ./docs/mockServiceWorker.js",
+    "build:dev": "tsc && VITE_MANIFEST_URL=https://tonconnect-demo-dapp-with-react-ui.vercel.app/tonconnect-manifest.vercel.json vite build && cp ./public/mockServiceWorkerDemo.js ./docs/mockServiceWorker.js",
+    "preview": "VITE_MANIFEST_URL=https://ton-connect.github.io/demo-dapp-with-react-ui/tonconnect-manifest.json vite preview"
   },
   "dependencies": {
     "@ton-community/assets-sdk": "0.0.5",
