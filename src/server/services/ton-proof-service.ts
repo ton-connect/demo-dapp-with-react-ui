@@ -8,6 +8,7 @@ import {tryParsePublicKey} from "../wrappers/wallets-data";
 const tonProofPrefix = 'ton-proof-item-v2/';
 const tonConnectPrefix = 'ton-connect';
 const allowedDomains = [
+  'tonconnect-demo-dapp-with-react-ui.vercel.app',
   'ton-connect.github.io',
   'localhost:5173'
 ];
